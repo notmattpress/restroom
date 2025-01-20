@@ -51,6 +51,10 @@ Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq
 
 == Changelog ==
 
+= 4.6.1 - 2025-01-20
+- Add style to coupon error inline message. ([#2178](https://github.com/woocommerce/storefront/pull/2178))
+- Update actions/upload-artifact from v3 to v4 to use the latest version. Also fix E2E test artifacts generation by configuring jest-html-reporters. ([#2180](https://github.com/woocommerce/storefront/pull/2180))
+
 = 4.6.0 - 2024-05-16 =
 - Enhancement - support for Appearance Tools in Classic themes. #2143. ([#2143](https://github.com/woocommerce/storefront/pull/2143))
 
