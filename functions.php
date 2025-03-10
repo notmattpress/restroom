@@ -1,15 +1,15 @@
 <?php
 /**
- * Storefront engine room
+ * Restroom engine room
  *
- * @package storefront
+ * @package restroom
  */
 
 /**
- * Assign the Storefront version to a var
+ * Assign the Restroom version to a var
  */
-$theme              = wp_get_theme( 'storefront' );
-$storefront_version = $theme['Version'];
+$theme              = wp_get_theme( 'restroom' );
+$restroom_version = $theme['Version'];
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -18,40 +18,40 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 980; /* pixels */
 }
 
-$storefront = (object) array(
-	'version'    => $storefront_version,
+$restroom = (object) array(
+	'version'    => $restroom_version,
 
 	/**
 	 * Initialize all the things.
 	 */
-	'main'       => require 'inc/class-storefront.php',
-	'customizer' => require 'inc/customizer/class-storefront-customizer.php',
+	'main'       => require 'inc/class-restroom.php',
+	'customizer' => require 'inc/customizer/class-restroom-customizer.php',
 );
 
-require 'inc/storefront-functions.php';
-require 'inc/storefront-template-hooks.php';
-require 'inc/storefront-template-functions.php';
+require 'inc/restroom-functions.php';
+require 'inc/restroom-template-hooks.php';
+require 'inc/restroom-template-functions.php';
 require 'inc/wordpress-shims.php';
 
 if ( class_exists( 'Jetpack' ) ) {
-	$storefront->jetpack = require 'inc/jetpack/class-storefront-jetpack.php';
+	$restroom->jetpack = require 'inc/jetpack/class-restroom-jetpack.php';
 }
 
-if ( storefront_is_woocommerce_activated() ) {
-	$storefront->woocommerce            = require 'inc/woocommerce/class-storefront-woocommerce.php';
-	$storefront->woocommerce_customizer = require 'inc/woocommerce/class-storefront-woocommerce-customizer.php';
+if ( restroom_is_poocommerce_activated() ) {
+	$restroom->poocommerce            = require 'inc/poocommerce/class-restroom-poocommerce.php';
+	$restroom->poocommerce_customizer = require 'inc/poocommerce/class-restroom-poocommerce-customizer.php';
 
-	require 'inc/woocommerce/class-storefront-woocommerce-adjacent-products.php';
+	require 'inc/poocommerce/class-restroom-poocommerce-adjacent-products.php';
 
-	require 'inc/woocommerce/storefront-woocommerce-template-hooks.php';
-	require 'inc/woocommerce/storefront-woocommerce-template-functions.php';
-	require 'inc/woocommerce/storefront-woocommerce-functions.php';
+	require 'inc/poocommerce/restroom-poocommerce-template-hooks.php';
+	require 'inc/poocommerce/restroom-poocommerce-template-functions.php';
+	require 'inc/poocommerce/restroom-poocommerce-functions.php';
 }
 
 if ( is_admin() ) {
-	$storefront->admin = require 'inc/admin/class-storefront-admin.php';
+	$restroom->admin = require 'inc/admin/class-restroom-admin.php';
 
-	require 'inc/admin/class-storefront-plugin-install.php';
+	require 'inc/admin/class-restroom-plugin-install.php';
 }
 
 /**
@@ -60,12 +60,12 @@ if ( is_admin() ) {
  * https://core.trac.wordpress.org/ticket/39610?cversion=1&cnum_hist=2
  */
 if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin() || is_customize_preview() ) ) {
-	require 'inc/nux/class-storefront-nux-admin.php';
-	require 'inc/nux/class-storefront-nux-guided-tour.php';
-	require 'inc/nux/class-storefront-nux-starter-content.php';
+	require 'inc/nux/class-restroom-nux-admin.php';
+	require 'inc/nux/class-restroom-nux-guided-tour.php';
+	require 'inc/nux/class-restroom-nux-starter-content.php';
 }
 
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
- * https://github.com/woocommerce/theme-customisations
+ * https://github.com/poocommerce/theme-customisations
  */
