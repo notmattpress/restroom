@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package storefront
+ * @package restroom
  */
 
 ?>
@@ -12,25 +12,25 @@
 		</div><!-- .col-full -->
 	</div><!-- #content -->
 
-	<?php do_action( 'storefront_before_footer' ); ?>
+	<?php do_action( 'restroom_before_footer' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="col-full">
 
 			<?php
 			/**
-			 * Functions hooked in to storefront_footer action
+			 * Functions hooked in to restroom_footer action
 			 *
-			 * @hooked storefront_footer_widgets - 10
-			 * @hooked storefront_credit         - 20
+			 * @hooked restroom_footer_widgets - 10
+			 * @hooked restroom_credit         - 20
 			 */
-			do_action( 'storefront_footer' );
+			do_action( 'restroom_footer' );
 			?>
 
 		</div><!-- .col-full -->
 	</footer><!-- #colophon -->
 
-	<?php do_action( 'storefront_after_footer' ); ?>
+	<?php do_action( 'restroom_after_footer' ); ?>
 
 </div><!-- #page -->
 
