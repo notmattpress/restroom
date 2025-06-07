@@ -1,8 +1,8 @@
 <?php
 /**
- * Storefront Admin Class
+ * Restroom Admin Class
  *
- * @package  storefront
+ * @package  restroom
  * @since    2.0.0
  */
 
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront_Admin' ) ) :
+if ( ! class_exists( 'Restroom_Admin' ) ) :
 	/**
-	 * The Storefront admin class
+	 * The Restroom admin class
 	 */
-	class Storefront_Admin {
+	class Restroom_Admin {
 
 		/**
 		 * Setup class.
@@ -34,11 +34,11 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 		 * @since  1.4.4
 		 */
 		public function welcome_style( $hook_suffix ) {
-			global $storefront_version;
+			global $restroom_version;
 
-			if ( 'appearance_page_storefront-welcome' === $hook_suffix ) {
-				wp_enqueue_style( 'storefront-welcome-screen', get_template_directory_uri() . '/assets/css/admin/welcome-screen/welcome.css', array(), $storefront_version );
-				wp_style_add_data( 'storefront-welcome-screen', 'rtl', 'replace' );
+			if ( 'appearance_page_restroom-welcome' === $hook_suffix ) {
+				wp_enqueue_style( 'restroom-welcome-screen', get_template_directory_uri() . '/assets/css/admin/welcome-screen/welcome.css', array(), $restroom_version );
+				wp_style_add_data( 'restroom-welcome-screen', 'rtl', 'replace' );
 			}
 		}
 
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 		 * @since 1.0.0
 		 */
 		public function welcome_register_menu() {
-			add_theme_page( 'Storefront', 'Storefront', 'activate_plugins', 'storefront-welcome', array( $this, 'storefront_welcome_screen' ) );
+			add_theme_page( 'Restroom', 'Restroom', 'activate_plugins', 'restroom-welcome', array( $this, 'restroom_welcome_screen' ) );
 		}
 
 		/**
@@ -57,41 +57,41 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 		 *
 		 * @since 1.0.0
 		 */
-		public function storefront_welcome_screen() {
+		public function restroom_welcome_screen() {
 			require_once ABSPATH . 'wp-load.php';
 			require_once ABSPATH . 'wp-admin/admin.php';
 			require_once ABSPATH . 'wp-admin/admin-header.php';
 
-			global $storefront_version;
+			global $restroom_version;
 
-			$show_setup_screen = ( false === (bool) get_option( 'storefront_nux_dismissed' ) ) && ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '4.8.0', '>=' ) );
+			$show_setup_screen = ( false === (bool) get_option( 'restroom_nux_dismissed' ) ) && ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '4.8.0', '>=' ) );
 			?>
 
-			<div class="storefront-wrap">
-				<section class="storefront-welcome-nav">
-					<span class="storefront-welcome-nav__version">Storefront <?php echo esc_attr( $storefront_version ); ?></span>
+			<div class="restroom-wrap">
+				<section class="restroom-welcome-nav">
+					<span class="restroom-welcome-nav__version">Restroom <?php echo esc_attr( $restroom_version ); ?></span>
 					<ul>
-						<li><a href="https://wordpress.org/support/theme/storefront" target="_blank"><?php esc_html_e( 'Support', 'storefront' ); ?></a></li>
-						<li><a href="https://woocommerce.com/documentation/themes/storefront/" target="_blank"><?php esc_html_e( 'Documentation', 'storefront' ); ?></a></li>
-						<li><a href="https://developer.woo.com/category/release-post/storefront-theme-release-notes/" target="_blank"><?php esc_html_e( 'Development blog', 'storefront' ); ?></a></li>
+						<li><a href="https://wordpress.org/support/theme/restroom" target="_blank"><?php esc_html_e( 'Support', 'restroom' ); ?></a></li>
+						<li><a href="https://poocommerce.com/documentation/themes/restroom/" target="_blank"><?php esc_html_e( 'Documentation', 'restroom' ); ?></a></li>
+						<li><a href="https://developer.woo.com/category/release-post/restroom-theme-release-notes/" target="_blank"><?php esc_html_e( 'Development blog', 'restroom' ); ?></a></li>
 					</ul>
 				</section>
 
-				<div class="storefront-logo">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/storefront-icon.svg" alt="Storefront" />
+				<div class="restroom-logo">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/restroom-icon.svg" alt="Restroom" />
 				</div>
 
-				<div class="storefront-intro">
+				<div class="restroom-intro">
 					<?php
 					if ( $show_setup_screen ) {
 						?>
-						<div class="storefront-intro-setup">
+						<div class="restroom-intro-setup">
 							<?php
-							Storefront_NUX_Admin::admin_notices_content();
+							Restroom_NUX_Admin::admin_notices_content();
 							?>
 						</div>
 						<?php
-						echo '<div class="storefront-intro-message" style="display:none">';
+						echo '<div class="restroom-intro-message" style="display:none">';
 					}
 
 					/**
@@ -101,10 +101,10 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 
 					if ( strpos( $referrer, 'sf_starter_content' ) !== false ) {
 						/* translators: 1: HTML, 2: HTML */
-						echo '<h1>' . sprintf( esc_attr__( 'Setup complete %1$sYour Storefront adventure begins now 🚀%2$s ', 'storefront' ), '<span>', '</span>' ) . '</h1>';
-						echo '<p>' . esc_attr__( 'One more thing... You might be interested in the following Storefront extensions and designs.', 'storefront' ) . '</p>';
+						echo '<h1>' . sprintf( esc_attr__( 'Setup complete %1$sYour Restroom adventure begins now 🚀%2$s ', 'restroom' ), '<span>', '</span>' ) . '</h1>';
+						echo '<p>' . esc_attr__( 'One more thing... You might be interested in the following Restroom extensions and designs.', 'restroom' ) . '</p>';
 					} else {
-						echo '<p>' . esc_attr__( 'Hello! You might be interested in the following Storefront extensions and designs.', 'storefront' ) . '</p>';
+						echo '<p>' . esc_attr__( 'Hello! You might be interested in the following Restroom extensions and designs.', 'restroom' ) . '</p>';
 					}
 
 					if ( $show_setup_screen ) {
@@ -113,44 +113,44 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 					?>
 				</div>
 
-				<div class="storefront-enhance">
-					<div class="storefront-enhance__column storefront-bundle">
-						<h3><?php esc_html_e( 'Storefront Extensions Bundle', 'storefront' ); ?></h3>
+				<div class="restroom-enhance">
+					<div class="restroom-enhance__column restroom-bundle">
+						<h3><?php esc_html_e( 'Restroom Extensions Bundle', 'restroom' ); ?></h3>
 						<span class="bundle-image">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/welcome-screen/storefront-bundle-hero.png" alt="Storefront Extensions Hero" />
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/welcome-screen/restroom-bundle-hero.png" alt="Restroom Extensions Hero" />
 						</span>
 
 						<p>
-							<?php esc_html_e( 'All the tools you\'ll need to define your style and customize Storefront.', 'storefront' ); ?>
+							<?php esc_html_e( 'All the tools you\'ll need to define your style and customize Restroom.', 'restroom' ); ?>
 						</p>
 
 						<p>
-							<?php esc_html_e( 'Make it yours without touching code with the Storefront Extensions bundle. Express yourself, optimize conversions, delight customers.', 'storefront' ); ?>
+							<?php esc_html_e( 'Make it yours without touching code with the Restroom Extensions bundle. Express yourself, optimize conversions, delight customers.', 'restroom' ); ?>
 						</p>
 
 
 						<p>
-							<a href="https://woocommerce.com/products/storefront-extensions-bundle/?utm_source=storefront&utm_medium=product&utm_campaign=storefrontaddons" class="storefront-button" target="_blank"><?php esc_html_e( 'Read more and purchase', 'storefront' ); ?></a>
+							<a href="https://poocommerce.com/products/restroom-extensions-bundle/?utm_source=restroom&utm_medium=product&utm_campaign=restroomaddons" class="restroom-button" target="_blank"><?php esc_html_e( 'Read more and purchase', 'restroom' ); ?></a>
 						</p>
 					</div>
-					<div class="storefront-enhance__column storefront-child-themes">
-						<h3><?php esc_html_e( 'Alternate designs', 'storefront' ); ?></h3>
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/welcome-screen/child-themes.jpg" alt="Storefront Powerpack" />
+					<div class="restroom-enhance__column restroom-child-themes">
+						<h3><?php esc_html_e( 'Alternate designs', 'restroom' ); ?></h3>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin/welcome-screen/child-themes.jpg" alt="Restroom Powerpack" />
 
 						<p>
-							<?php esc_html_e( 'Quickly and easily transform your shops appearance with Storefront child themes.', 'storefront' ); ?>
+							<?php esc_html_e( 'Quickly and easily transform your shops appearance with Restroom child themes.', 'restroom' ); ?>
 						</p>
 
 						<p>
-							<?php esc_html_e( 'Each has been designed to serve a different industry - from fashion to food.', 'storefront' ); ?>
+							<?php esc_html_e( 'Each has been designed to serve a different industry - from fashion to food.', 'restroom' ); ?>
 						</p>
 
 						<p>
-							<?php esc_html_e( 'Of course they are all fully compatible with each Storefront extension.', 'storefront' ); ?>
+							<?php esc_html_e( 'Of course they are all fully compatible with each Restroom extension.', 'restroom' ); ?>
 						</p>
 
 						<p>
-							<a href="https://woocommerce.com/documentation/products/themes/storefront/child-themes/?utm_source=storefront&utm_medium=product&utm_campaign=storefrontaddons" class="storefront-button" target="_blank"><?php esc_html_e( 'Check \'em out', 'storefront' ); ?></a>
+							<a href="https://poocommerce.com/documentation/products/themes/restroom/child-themes/?utm_source=restroom&utm_medium=product&utm_campaign=restroomaddons" class="restroom-button" target="_blank"><?php esc_html_e( 'Check \'em out', 'restroom' ); ?></a>
 						</p>
 					</div>
 				</div>
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 					<p>
 					<?php
 						/* translators: %s: Automattic branding */
-						printf( esc_html__( 'An %s project', 'storefront' ), '<a href="https://automattic.com/"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/admin/welcome-screen/automattic.png" alt="Automattic" /></a>' );
+						printf( esc_html__( 'An %s project', 'restroom' ), '<a href="https://automattic.com/"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/admin/welcome-screen/automattic.png" alt="Automattic" /></a>' );
 					?>
 					</p>
 				</div>
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 				if ( is_plugin_active( $plugin_slug . '/' . $plugin_file ) ) {
 					// The plugin is already active.
 					$button = array(
-						'message' => esc_attr__( 'Activated', 'storefront' ),
+						'message' => esc_attr__( 'Activated', 'restroom' ),
 						'url'     => '#',
 						'classes' => 'disabled',
 					);
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 
 					// The plugin exists but isn't activated yet.
 					$button = array(
-						'message' => esc_attr__( 'Activate', 'storefront' ),
+						'message' => esc_attr__( 'Activate', 'restroom' ),
 						'url'     => $url,
 						'classes' => 'activate-now',
 					);
@@ -214,14 +214,14 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 						'install-plugin_' . $plugin_slug
 					);
 					$button = array(
-						'message' => esc_attr__( 'Install now', 'storefront' ),
+						'message' => esc_attr__( 'Install now', 'restroom' ),
 						'url'     => $url,
 						'classes' => ' install-now install-' . $plugin_slug,
 					);
 				}
 				?>
-				<a href="<?php echo esc_url( $button['url'] ); ?>" class="storefront-button <?php echo esc_attr( $button['classes'] ); ?>" data-originaltext="<?php echo esc_attr( $button['message'] ); ?>" data-slug="<?php echo esc_attr( $plugin_slug ); ?>" aria-label="<?php echo esc_attr( $button['message'] ); ?>"><?php echo esc_html( $button['message'] ); ?></a>
-				<a href="https://wordpress.org/plugins/<?php echo esc_attr( $plugin_slug ); ?>" target="_blank"><?php esc_html_e( 'Learn more', 'storefront' ); ?></a>
+				<a href="<?php echo esc_url( $button['url'] ); ?>" class="restroom-button <?php echo esc_attr( $button['classes'] ); ?>" data-originaltext="<?php echo esc_attr( $button['message'] ); ?>" data-slug="<?php echo esc_attr( $plugin_slug ); ?>" aria-label="<?php echo esc_attr( $button['message'] ); ?>"><?php echo esc_html( $button['message'] ); ?></a>
+				<a href="https://wordpress.org/plugins/<?php echo esc_attr( $plugin_slug ); ?>" target="_blank"><?php esc_html_e( 'Learn more', 'restroom' ); ?></a>
 				<?php
 			}
 		}
@@ -277,7 +277,7 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 		 * @param  string $transient Name the transient.
 		 * @return [type]            [description]
 		 */
-		public function get_storefront_product_data( $url, $transient ) {
+		public function get_restroom_product_data( $url, $transient ) {
 			$raw_products = wp_safe_remote_get( $url );
 			$products     = json_decode( wp_remote_retrieve_body( $raw_products ) );
 
@@ -291,4 +291,4 @@ if ( ! class_exists( 'Storefront_Admin' ) ) :
 
 endif;
 
-return new Storefront_Admin();
+return new Restroom_Admin();
