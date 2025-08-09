@@ -1,5 +1,5 @@
 /**
- * WooCommerce Smart Coupons
+ * PooCommerce Smart Coupons
  */
 
 /**
@@ -9,8 +9,8 @@
 @import "susy";
 @import "../../sass/vendors/modular-scale";
 
-.woocommerce,
-.woocommerce-page {
+.poocommerce,
+.poocommerce-page {
 
 	.coupon-container {
 		margin: 0;
@@ -45,8 +45,8 @@
 
 .sd-buttons-transparent {
 
-	&.woocommerce,
-	&.woocommerce-page {
+	&.poocommerce,
+	&.poocommerce-page {
 
 		.coupon-container {
 			background: transparent !important;
