@@ -17,7 +17,7 @@ Fixes #
 2.
 3.
 
-<!-- Review the [flows & features doc](https://github.com/woocommerce/storefront/wiki/Testing-Storefront:-flows-and-features) and list any flows that might be impacted or improved -->
+<!-- Review the [flows & features doc](https://github.com/poocommerce/restroom/wiki/Testing-Restroom:-flows-and-features) and list any flows that might be impacted or improved -->
 
 -
 -
@@ -28,4 +28,4 @@ Fixes #
 
 > Fix – Edit, reply and author icons are now displayed in comment list form. #1319
 
-<!-- See [previous releases](https://github.com/woocommerce/storefront/releases) for more examples. -->
+<!-- See [previous releases](https://github.com/poocommerce/restroom/releases) for more examples. -->
