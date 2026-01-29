@@ -1,11 +1,11 @@
 {
-	"name": "storefront",
-	"title": "Storefront",
+	"name": "restroom",
+	"title": "Restroom",
 	"version": "4.6.2",
-	"homepage": "https://woocommerce.com/products/storefront/",
+	"homepage": "https://poocommerce.com/products/restroom/",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/woothemes/storefront.git"
+		"url": "https://github.com/woothemes/restroom.git"
 	},
 	"rtlcssConfig": {
 		"options": {
@@ -33,12 +33,12 @@
 		"postbuild:css": "npm run autoprefixer && npm run rtlcss",
 		"autoprefixer": "echo \"$(tput setaf \"3\")Running Autoprefixer$(tput sgr0)\"; for f in $npm_package_config_assets_css_min; do file=${f%.css}; postcss $f --use autoprefixer -r --verbose --no-map; done",
 		"rtlcss": "echo \"$(tput setaf \"3\")Building RTL CSS$(tput sgr0)\"; for f in $npm_package_config_assets_css_min; do file=${f%.css}; rtlcss $f $file-rtl.css; done",
-		"makepot": "echo \"$(tput setaf \"3\")Updating POT file$(tput sgr0)\"; wpi18n addtextdomain storefront; wpi18n makepot --domain-path languages --pot-file storefront.pot --type theme --exclude node_modules",
+		"makepot": "echo \"$(tput setaf \"3\")Updating POT file$(tput sgr0)\"; wpi18n addtextdomain restroom; wpi18n makepot --domain-path languages --pot-file restroom.pot --type theme --exclude node_modules",
 		"watchsass": "sass -I node_modules/bourbon/core -I node_modules/susy/sass assets/css:assets/css --style compressed --watch --no-source-map",
 		"watchjs": "onchange \"assets/js/**/*.js\" -d 1000 -k -e \"assets/js/**/*.min.js\" -- npm run build:js",
 		"start": "concurrently --kill-others \"npm run watchjs\" \"npm run watchsass\"",
-		"labels:dry": "github-label-sync --labels ./.github/label-sync-config.json --allow-added-labels --dry-run woocommerce/storefront",
-		"labels:sync": "github-label-sync --labels ./.github/label-sync-config.json --allow-added-labels woocommerce/storefront",
+		"labels:dry": "github-label-sync --labels ./.github/label-sync-config.json --allow-added-labels --dry-run poocommerce/restroom",
+		"labels:sync": "github-label-sync --labels ./.github/label-sync-config.json --allow-added-labels poocommerce/restroom",
 		"lint": "npm run lint:php && npm run lint:css && npm run lint:js",
 		"lint:ci": "npm run lint:js && npm run lint:css",
 		"lint:css": "stylelint 'assets/**/*.scss'",
@@ -48,8 +48,8 @@
 		"lint:js-fix": "eslint assets/js --ext=js,jsx,ts,tsx --fix",
 		"lint:php": "composer run-script phpcs ./inc",
 		"wp-env": "wp-env",
-		"test:e2e": "npm run wp-env run tests-cli wp theme activate storefront && cross-env wp-scripts test-e2e",
-		"test:php": "npm run wp-env run tests-cli -- --env-cwd=/var/www/html/wp-content/themes/storefront vendor/bin/phpunit",
+		"test:e2e": "npm run wp-env run tests-cli wp theme activate restroom && cross-env wp-scripts test-e2e",
+		"test:php": "npm run wp-env run tests-cli -- --env-cwd=/var/www/html/wp-content/themes/restroom vendor/bin/phpunit",
 		"validate-build": "./validate-build.sh"
 	},
 	"jest": {
@@ -72,7 +72,7 @@
 		]
 	},
 	"config": {
-		"wp_org_slug": "storefront",
+		"wp_org_slug": "restroom",
 		"translate": true,
 		"assets": {
 			"js": {
@@ -87,7 +87,7 @@
 	},
 	"license": "GPL-3.0+",
 	"devDependencies": {
-		"@woocommerce/eslint-plugin": "2.3.0",
+		"@poocommerce/eslint-plugin": "2.3.0",
 		"@wordpress/browserslist-config": "6.6.0",
 		"@wordpress/env": "10.6.0",
 		"@wordpress/eslint-plugin": "15.1.0",
