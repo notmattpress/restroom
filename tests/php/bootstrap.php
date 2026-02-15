@@ -4,7 +4,7 @@
  *
  * Relies on WP_TESTS_DIR provided by wp-env (tests container).
  *
- * @package storefront
+ * @package restroom
  */
 
 $wp_tests_dir = getenv( 'WP_TESTS_DIR' );
@@ -24,15 +24,15 @@ if ( ! defined( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH' ) ) {
 
 require_once $wp_tests_dir . '/includes/functions.php';
 
-// Ensure WooCommerce is loaded before the test suite boots.
+// Ensure PooCommerce is loaded before the test suite boots.
 tests_add_filter(
 	'muplugins_loaded',
 	function () {
-		require WP_PLUGIN_DIR . '/woocommerce/woocommerce.php';
+		require WP_PLUGIN_DIR . '/poocommerce/poocommerce.php';
 	}
 );
 
 require_once $wp_tests_dir . '/includes/bootstrap.php';
 
 // Load the class under test.
-require dirname( __DIR__, 2 ) . '/inc/woocommerce/class-storefront-woocommerce-adjacent-products.php';
+require dirname( __DIR__, 2 ) . '/inc/poocommerce/class-restroom-poocommerce-adjacent-products.php';

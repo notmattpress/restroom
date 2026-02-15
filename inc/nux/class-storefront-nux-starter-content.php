@@ -1,8 +1,8 @@
 <?php
 /**
- * Storefront NUX Starter Content Class
+ * Restroom NUX Starter Content Class
  *
- * @package  storefront
+ * @package  restroom
  * @since    2.0.0
  */
 
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
+if ( ! class_exists( 'Restroom_NUX_Starter_Content' ) ) :
 
 	/**
-	 * The Storefront NUX Starter Content class
+	 * The Restroom NUX Starter Content class
 	 */
-	class Storefront_NUX_Starter_Content {
+	class Restroom_NUX_Starter_Content {
 		/**
 		 * Setup class.
 		 *
@@ -24,10 +24,10 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'starter_content' ) );
 			add_filter( 'get_theme_starter_content', array( $this, 'filter_start_content' ), 10, 2 );
-			add_action( 'woocommerce_product_query', array( $this, 'wc_query' ) );
-			add_filter( 'woocommerce_shortcode_products_query', array( $this, 'shortcode_loop_products' ), 10, 3 );
-			add_filter( 'woocommerce_shortcode_products_query', array( $this, 'filter_on_sale_products' ), 20, 3 );
-			add_filter( 'woocommerce_product_categories', array( $this, 'filter_product_categories_shortcode' ) );
+			add_action( 'poocommerce_product_query', array( $this, 'wc_query' ) );
+			add_filter( 'poocommerce_shortcode_products_query', array( $this, 'shortcode_loop_products' ), 10, 3 );
+			add_filter( 'poocommerce_shortcode_products_query', array( $this, 'filter_on_sale_products' ), 20, 3 );
+			add_filter( 'poocommerce_product_categories', array( $this, 'filter_product_categories_shortcode' ) );
 			add_action( 'customize_preview_init', array( $this, 'add_product_tax' ), 10 );
 			add_action( 'customize_preview_init', array( $this, 'set_product_data' ), 10 );
 			add_action( 'after_setup_theme', array( $this, 'remove_default_widgets' ) );
@@ -35,22 +35,22 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			add_filter( 'the_title', array( $this, 'filter_auto_draft_title' ), 10, 2 );
 			add_action( 'customize_preview_init', array( $this, 'update_homepage_content' ), 10 );
 
-			if ( ! isset( $_GET['sf_starter_content'] ) || 1 !== absint( $_GET['sf_starter_content'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				add_filter( 'storefront_starter_content', '__return_empty_array' );
+			if ( ! isset( $_GET['sf_starter_content'] ) || 1 !== absint( $_GET['sf_starter_content'] ) ) { // phpcs:ignore NotMattPress.Security.NonceVerification.Recommended
+				add_filter( 'restroom_starter_content', '__return_empty_array' );
 			}
 		}
 
 		/**
 		 * Remove default widgets on activation
-		 * Set an option so that this is only done the first time the user activates Storefront.
+		 * Set an option so that this is only done the first time the user activates Restroom.
 		 *
 		 * @since 2.2.0
 		 * @return void
 		 */
 		public function remove_default_widgets() {
-			if ( false === (bool) get_option( 'storefront_cleared_widgets' ) && true === (bool) get_option( 'storefront_nux_fresh_site' ) ) {
+			if ( false === (bool) get_option( 'restroom_cleared_widgets' ) && true === (bool) get_option( 'restroom_nux_fresh_site' ) ) {
 				update_option( 'sidebars_widgets', array( 'wp_inactive_widgets' => array() ) );
-				update_option( 'storefront_cleared_widgets', true );
+				update_option( 'restroom_cleared_widgets', true );
 			}
 		}
 
@@ -63,18 +63,18 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			$starter_content = array(
 				'posts'       => array(
 					'home'    => array(
-						'post_title' => esc_attr__( 'Homepage', 'storefront' ),
+						'post_title' => esc_attr__( 'Homepage', 'restroom' ),
 						'template'   => 'template-fullwidth.php',
 					),
 					'about'   => array(
 						'post_type'    => 'page',
-						'post_title'   => __( 'About', 'storefront' ),
-						'post_content' => __( 'You might be an artist who would like to introduce yourself and your work here or maybe you&rsquo;re a business with a mission to describe.', 'storefront' ),
+						'post_title'   => __( 'About', 'restroom' ),
+						'post_content' => __( 'You might be an artist who would like to introduce yourself and your work here or maybe you&rsquo;re a business with a mission to describe.', 'restroom' ),
 					),
 					'contact' => array(
 						'post_type'    => 'page',
-						'post_title'   => __( 'Contact', 'storefront' ),
-						'post_content' => __( 'This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form.', 'storefront' ),
+						'post_title'   => __( 'Contact', 'restroom' ),
+						'post_content' => __( 'This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form.', 'restroom' ),
 					),
 					'blog',
 				),
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				),
 				'nav_menus'   => array(
 					'primary'   => array(
-						'name'  => __( 'Primary Menu', 'storefront' ),
+						'name'  => __( 'Primary Menu', 'restroom' ),
 						'items' => array(
 							'shop'         => array(
 								'type'      => 'post_type',
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 						),
 					),
 					'secondary' => array(
-						'name'  => __( 'Secondary Menu', 'storefront' ),
+						'name'  => __( 'Secondary Menu', 'restroom' ),
 						'items' => array(
 							'my_account' => array(
 								'type'      => 'post_type',
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 						),
 					),
 					'handheld'  => array(
-						'name'  => __( 'Handheld Menu', 'storefront' ),
+						'name'  => __( 'Handheld Menu', 'restroom' ),
 						'items' => array(
 							'shop' => array(
 								'type'      => 'post_type',
@@ -213,11 +213,11 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				$starter_content['attachments'][ $symbol ]['post_name'] = $symbol;
 			}
 
-			// Add WooCommerce pages.
+			// Add PooCommerce pages.
 			$starter_content_wc_pages = array();
-			$woocommerce_pages        = Storefront_NUX_Admin::get_woocommerce_pages();
+			$poocommerce_pages        = Restroom_NUX_Admin::get_poocommerce_pages();
 
-			foreach ( $woocommerce_pages as $option => $page_id ) {
+			foreach ( $poocommerce_pages as $option => $page_id ) {
 				$page = get_post( $page_id );
 
 				if ( null !== $page ) {
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			/**
 			 * Register support for starter content.
 			 */
-			add_theme_support( 'starter-content', apply_filters( 'storefront_starter_content', $starter_content ) );
+			add_theme_support( 'starter-content', apply_filters( 'restroom_starter_content', $starter_content ) );
 		}
 
 		/**
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		 * @return array $content
 		 */
 		public function filter_start_content( $content, $config ) {
-			if ( ! isset( $_GET['sf_starter_content'] ) || 1 !== absint( $_GET['sf_starter_content'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ! isset( $_GET['sf_starter_content'] ) || 1 !== absint( $_GET['sf_starter_content'] ) ) { // phpcs:ignore NotMattPress.Security.NonceVerification.Recommended
 				return $content;
 			}
 
@@ -262,8 +262,8 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			// Remove some of the content if necessary.
 			$tasks = array();
 
-			if ( isset( $_GET['sf_tasks'] ) && '' !== sanitize_text_field( wp_unslash( $_GET['sf_tasks'] ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				$tasks = explode( ',', sanitize_text_field( wp_unslash( $_GET['sf_tasks'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET['sf_tasks'] ) && '' !== sanitize_text_field( wp_unslash( $_GET['sf_tasks'] ) ) ) { // phpcs:ignore NotMattPress.Security.NonceVerification.Recommended
+				$tasks = explode( ',', sanitize_text_field( wp_unslash( $_GET['sf_tasks'] ) ) ); // phpcs:ignore NotMattPress.Security.NonceVerification.Recommended
 			}
 
 			$tasks = $this->validate_tasks( $tasks );
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			}
 
 			// Existing site: remove custom pages, navigation menus and widgets from starter content.
-			if ( true !== (bool) get_option( 'storefront_nux_fresh_site' ) ) {
+			if ( true !== (bool) get_option( 'restroom_nux_fresh_site' ) ) {
 				unset( $content['posts']['about'] );
 				unset( $content['posts']['contact'] );
 				unset( $content['nav_menus'] );
@@ -319,7 +319,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * Filter WooCommerce main query to include starter content products.
+		 * Filter PooCommerce main query to include starter content products.
 		 *
 		 * @since 2.2.0
 		 * @param object $query The Query.
@@ -356,7 +356,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * Filter shortcode products loop in WooCommerce.
+		 * Filter shortcode products loop in PooCommerce.
 		 *
 		 * @since 2.2.0
 		 * @param array  $query_args Query args.
@@ -400,7 +400,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * Filter shortcode products loop in WooCommerce.
+		 * Filter shortcode products loop in PooCommerce.
 		 *
 		 * @since 2.5.0
 		 * @param array  $query_args Query args.
@@ -539,7 +539,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				}
 			}
 
-			add_filter( 'storefront_product_categories_shortcode_args', array( $this, 'filter_sf_categories' ) );
+			add_filter( 'restroom_product_categories_shortcode_args', array( $this, 'filter_sf_categories' ) );
 		}
 
 		/**
@@ -613,7 +613,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * Filter Storefront Product Categories shortcode.
+		 * Filter Restroom Product Categories shortcode.
 		 *
 		 * @since 2.2.0
 		 * @param array $args Shortcode args.
@@ -642,7 +642,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * WooCommerce 3.0.0 changes the title of all auto-draft products to "AUTO-DRAFT".
+		 * PooCommerce 3.0.0 changes the title of all auto-draft products to "AUTO-DRAFT".
 		 * Here we change the title back when the post status changes.
 		 *
 		 * @since 2.2.0
@@ -668,7 +668,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		}
 
 		/**
-		 * WooCommerce 3.0.0 changes the title of all auto-draft products to "AUTO-DRAFT".
+		 * PooCommerce 3.0.0 changes the title of all auto-draft products to "AUTO-DRAFT".
 		 * Here we filter the title and display the correct one instead.
 		 *
 		 * @since 2.2.0
@@ -701,19 +701,19 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		 * @since 2.2.0
 		 */
 		private function starter_content_products() {
-			$accessories_name        = esc_attr__( 'Accessories', 'storefront' );
-			$accessories_description = esc_attr__( 'A short category description', 'storefront' );
+			$accessories_name        = esc_attr__( 'Accessories', 'restroom' );
+			$accessories_description = esc_attr__( 'A short category description', 'restroom' );
 
-			$hoodies_name        = esc_attr__( 'Hoodies', 'storefront' );
-			$hoodies_description = esc_attr__( 'A short category description', 'storefront' );
+			$hoodies_name        = esc_attr__( 'Hoodies', 'restroom' );
+			$hoodies_description = esc_attr__( 'A short category description', 'restroom' );
 
-			$tshirts_name        = esc_attr__( 'Tshirts', 'storefront' );
-			$tshirts_description = esc_attr__( 'A short category description', 'storefront' );
+			$tshirts_name        = esc_attr__( 'Tshirts', 'restroom' );
+			$tshirts_description = esc_attr__( 'A short category description', 'restroom' );
 
 			$products = array(
 				// Accessories.
 				'beanie'             => array(
-					'post_title'     => esc_attr__( 'Beanie', 'storefront' ),
+					'post_title'     => esc_attr__( 'Beanie', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -735,7 +735,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'belt'               => array(
-					'post_title'     => esc_attr__( 'Belt', 'storefront' ),
+					'post_title'     => esc_attr__( 'Belt', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -757,7 +757,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'cap'                => array(
-					'post_title'     => esc_attr__( 'Cap', 'storefront' ),
+					'post_title'     => esc_attr__( 'Cap', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -779,7 +779,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'sunglasses'         => array(
-					'post_title'     => esc_attr__( 'Sunglasses', 'storefront' ),
+					'post_title'     => esc_attr__( 'Sunglasses', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -800,7 +800,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'hoodie-with-logo'   => array(
-					'post_title'     => esc_attr__( 'Hoodie with Logo', 'storefront' ),
+					'post_title'     => esc_attr__( 'Hoodie with Logo', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -821,7 +821,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'hoodie-with-pocket' => array(
-					'post_title'     => esc_attr__( 'Hoodie with Pocket', 'storefront' ),
+					'post_title'     => esc_attr__( 'Hoodie with Pocket', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -843,7 +843,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'hoodie-with-zipper' => array(
-					'post_title'     => esc_attr__( 'Hoodie with Zipper', 'storefront' ),
+					'post_title'     => esc_attr__( 'Hoodie with Zipper', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -864,7 +864,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'hoodie'             => array(
-					'post_title'     => esc_attr__( 'Hoodie', 'storefront' ),
+					'post_title'     => esc_attr__( 'Hoodie', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -886,7 +886,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'long-sleeve-tee'    => array(
-					'post_title'     => esc_attr__( 'Long Sleeve Tee', 'storefront' ),
+					'post_title'     => esc_attr__( 'Long Sleeve Tee', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -907,7 +907,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'polo'               => array(
-					'post_title'     => esc_attr__( 'Polo', 'storefront' ),
+					'post_title'     => esc_attr__( 'Polo', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -928,7 +928,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'tshirt'             => array(
-					'post_title'     => esc_attr__( 'Tshirt', 'storefront' ),
+					'post_title'     => esc_attr__( 'Tshirt', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -949,7 +949,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 					),
 				),
 				'vneck-tee'          => array(
-					'post_title'     => esc_attr__( 'Vneck Tshirt', 'storefront' ),
+					'post_title'     => esc_attr__( 'Vneck Tshirt', 'restroom' ),
 					'post_content'   => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
 					'post_type'      => 'product',
 					'comment_status' => 'open',
@@ -976,7 +976,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				$products[ $symbol ]['post_name'] = $symbol;
 			}
 
-			return apply_filters( 'storefront_starter_content_products', $products );
+			return apply_filters( 'restroom_starter_content_products', $products );
 		}
 
 		/**
@@ -1018,7 +1018,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				{{cover}}
 
 				<!-- wp:heading {"align":"center"} -->
-				<h2 style="text-align:center">' . __( 'Shop by Category', 'storefront' ) . '</h2>
+				<h2 style="text-align:center">' . __( 'Shop by Category', 'restroom' ) . '</h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:shortcode -->
@@ -1026,30 +1026,30 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				<!-- /wp:shortcode -->
 
 				<!-- wp:heading {"align":"center"} -->
-				<h2 style="text-align:center">' . __( 'New In', 'storefront' ) . '</h2>
+				<h2 style="text-align:center">' . __( 'New In', 'restroom' ) . '</h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:woocommerce/product-new {"columns":4} /-->
+				<!-- wp:poocommerce/product-new {"columns":4} /-->
 
 				{{handpicked-products}}
 
 				<!-- wp:heading {"align":"center"} -->
-				<h2 style="text-align:center">' . __( 'Fan Favorites', 'storefront' ) . '</h2>
+				<h2 style="text-align:center">' . __( 'Fan Favorites', 'restroom' ) . '</h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:woocommerce/product-top-rated {"columns":4} /-->
+				<!-- wp:poocommerce/product-top-rated {"columns":4} /-->
 
 				<!-- wp:heading {"align":"center"} -->
-				<h2 style="text-align:center">' . __( 'On Sale', 'storefront' ) . '</h2>
+				<h2 style="text-align:center">' . __( 'On Sale', 'restroom' ) . '</h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:woocommerce/product-on-sale {"columns":4} /-->
+				<!-- wp:poocommerce/product-on-sale {"columns":4} /-->
 
 				<!-- wp:heading {"align":"center"} -->
-				<h2 style="text-align:center">' . __( 'Best Sellers', 'storefront' ) . '</h2>
+				<h2 style="text-align:center">' . __( 'Best Sellers', 'restroom' ) . '</h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:woocommerce/product-best-sellers {"columns":4} /-->
+				<!-- wp:poocommerce/product-best-sellers {"columns":4} /-->
 			';
 
 			return trim( $content );
@@ -1071,15 +1071,15 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				$cover = '
 					<!-- wp:cover {"url":"{{hero-image-url}}","id":{{hero-image-id}},"dimRatio":0,"customOverlayColor":"#ffffff","align":"full"} -->
 					<div class="wp-block-cover alignfull" style="background-image:url({{hero-image-url}});background-color:#ffffff"><div class="wp-block-cover__inner-container"><!-- wp:heading {"level":1,"align":"center"} -->
-					<h1 style="text-align:center">' . __( 'Welcome', 'storefront' ) . '</h1>
+					<h1 style="text-align:center">' . __( 'Welcome', 'restroom' ) . '</h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"align":"center","customTextColor":"#000000"} -->
-					<p style="color:#000000;text-align:center" class="has-text-color">' . __( 'This is your homepage which is what most visitors will see when they first visit your shop.', 'storefront' ) . '</p>
+					<p style="color:#000000;text-align:center" class="has-text-color">' . __( 'This is your homepage which is what most visitors will see when they first visit your shop.', 'restroom' ) . '</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"align":"center","customTextColor":"#000000"} -->
-					<p style="color:#000000;text-align:center" class="has-text-color">' . __( 'You can change this text by editing the "Welcome" page via the "Pages" menu in your dashboard.', 'storefront' ) . '</p>
+					<p style="color:#000000;text-align:center" class="has-text-color">' . __( 'You can change this text by editing the "Welcome" page via the "Pages" menu in your dashboard.', 'restroom' ) . '</p>
 					<!-- /wp:paragraph --></div></div>
 					<!-- /wp:cover -->
 				';
@@ -1105,10 +1105,10 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 			if ( ! empty( $products ) ) {
 				$handpicked = '
 					<!-- wp:heading {"align":"center"} -->
-					<h2 style="text-align:center">' . __( 'We Recommend', 'storefront' ) . '</h2>
+					<h2 style="text-align:center">' . __( 'We Recommend', 'restroom' ) . '</h2>
 					<!-- /wp:heading -->
 
-					<!-- wp:woocommerce/handpicked-products {"columns":4,"editMode":false,"products":[{{handpicked-products}}]} /-->
+					<!-- wp:poocommerce/handpicked-products {"columns":4,"editMode":false,"products":[{{handpicked-products}}]} /-->
 				';
 
 				$handpicked = str_replace( '{{handpicked-products}}', implode( ',', $products ), $handpicked );
@@ -1179,7 +1179,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 				'post_type'      => $post_type,
 				'post_status'    => 'auto-draft',
 				'posts_per_page' => -1,
-				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				// phpcs:ignore NotMattPress.DB.SlowDBQuery.slow_db_query_meta_query
 				'meta_query'     => array(
 					array(
 						'key'     => '_customize_draft_post_name',
@@ -1233,7 +1233,7 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 		 * @return mixed false|array $validated_tasks if tasks list is not empty.
 		 */
 		private function validate_tasks( $tasks ) {
-			$valid_tasks = apply_filters( 'storefront_valid_tour_tasks', array( 'homepage', 'products' ) );
+			$valid_tasks = apply_filters( 'restroom_valid_tour_tasks', array( 'homepage', 'products' ) );
 
 			$validated_tasks = array();
 
@@ -1253,4 +1253,4 @@ if ( ! class_exists( 'Storefront_NUX_Starter_Content' ) ) :
 
 endif;
 
-return new Storefront_NUX_Starter_Content();
+return new Restroom_NUX_Starter_Content();

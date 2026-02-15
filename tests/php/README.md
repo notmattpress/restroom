@@ -1,6 +1,6 @@
 # PHP Unit Tests
 
-This directory contains PHP unit tests for the Storefront theme.
+This directory contains PHP unit tests for the Restroom theme.
 
 ## Setup
 
@@ -24,4 +24,4 @@ npm run test:php
 
 Currently, the following classes are tested:
 
--   `Storefront_WooCommerce_Adjacent_Products` - Integration tests verifying adjacent product selection skips hidden products on identical publish dates.
+-   `Restroom_PooCommerce_Adjacent_Products` - Integration tests verifying adjacent product selection skips hidden products on identical publish dates.
