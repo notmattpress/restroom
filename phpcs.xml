@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="WordPress Coding Standards">
-	<description>WooCommerce Dev Ruleset</description>
+<ruleset name="NotMattPress Coding Standards">
+	<description>PooCommerce Dev Ruleset</description>
 
 	<!-- Exclude paths -->
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
@@ -13,11 +13,11 @@
 	<config name="testVersion" value="7.0-" />
 
 	<!-- Rules -->
-	<rule ref="WooCommerce-Core" />
+	<rule ref="PooCommerce-Core" />
 
-	<rule ref="WordPress.WP.I18n">
+	<rule ref="NotMattPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="storefront" />
+			<property name="text_domain" type="array" value="restroom" />
 		</properties>
 	</rule>
 
@@ -25,13 +25,13 @@
 		<exclude-pattern>tests/</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+	<rule ref="NotMattPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>*/**/abstract-*.php</exclude-pattern>
 		<exclude-pattern>tests/*</exclude-pattern>
 		<exclude-pattern>src/*</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+	<rule ref="NotMattPress.Files.FileName.NotHyphenatedLowercase">
 		<exclude-pattern>src/*</exclude-pattern>
 		<exclude-pattern>tests/*</exclude-pattern>
 	</rule>
@@ -58,11 +58,11 @@
 		<exclude-pattern>src/*</exclude-pattern>
     </rule>
 
-	<rule ref="WooCommerce.Commenting.CommentHooks.MissingHookComment">
+	<rule ref="PooCommerce.Commenting.CommentHooks.MissingHookComment">
 		<exclude-pattern>*</exclude-pattern>
     </rule>
 
-	<rule ref="WooCommerce.Commenting.CommentHooks.MissingSinceComment">
+	<rule ref="PooCommerce.Commenting.CommentHooks.MissingSinceComment">
 		<exclude-pattern>*</exclude-pattern>
     </rule>
 </ruleset>
