@@ -36,7 +36,7 @@
 		}
 	}
 
-	.woocommerce-active {
+	.poocommerce-active {
 
 		.site-header {
 
@@ -65,7 +65,7 @@
 		}
 	}
 
-	.storefront-secondary-navigation {
+	.restroom-secondary-navigation {
 
 		.site-header {
 
@@ -80,7 +80,7 @@
 			}
 		}
 
-		&.woocommerce-active {
+		&.poocommerce-active {
 
 			.site-header {
 
@@ -186,7 +186,7 @@
 		}
 	}
 
-	.storefront-full-width-content {
+	.restroom-full-width-content {
 
 		.content-area {
 
@@ -532,7 +532,7 @@
 	/**
 	 * Primary Navigation
 	 */
-	.storefront-primary-navigation {
+	.restroom-primary-navigation {
 		clear: both;
 
 		@include clearfix;
