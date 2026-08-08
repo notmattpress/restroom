@@ -2,7 +2,7 @@
 /**
  * Template used to display post content.
  *
- * @package storefront
+ * @package restroom
  */
 
 ?>
@@ -11,13 +11,13 @@
 
 	<?php
 	/**
-	 * Functions hooked in to storefront_loop_post action.
+	 * Functions hooked in to restroom_loop_post action.
 	 *
-	 * @hooked storefront_post_header          - 10
-	 * @hooked storefront_post_content         - 30
-	 * @hooked storefront_post_taxonomy        - 40
+	 * @hooked restroom_post_header          - 10
+	 * @hooked restroom_post_content         - 30
+	 * @hooked restroom_post_taxonomy        - 40
 	 */
-	do_action( 'storefront_loop_post' );
+	do_action( 'restroom_loop_post' );
 	?>
 
 </article><!-- #post-## -->

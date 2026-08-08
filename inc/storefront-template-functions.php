@@ -1,17 +1,17 @@
 <?php
 /**
- * Storefront template functions.
+ * Restroom template functions.
  *
- * @package storefront
+ * @package restroom
  */
 
-if ( ! function_exists( 'storefront_display_comments' ) ) {
+if ( ! function_exists( 'restroom_display_comments' ) ) {
 	/**
-	 * Storefront display comments
+	 * Restroom display comments
 	 *
 	 * @since  1.0.0
 	 */
-	function storefront_display_comments() {
+	function restroom_display_comments() {
 		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || 0 !== intval( get_comments_number() ) ) :
 			comments_template();
@@ -19,16 +19,16 @@ if ( ! function_exists( 'storefront_display_comments' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_comment' ) ) {
+if ( ! function_exists( 'restroom_comment' ) ) {
 	/**
-	 * Storefront comment template
+	 * Restroom comment template
 	 *
 	 * @param array $comment the comment array.
 	 * @param array $args the comment args.
 	 * @param int   $depth the comment depth.
 	 * @since 1.0.0
 	 */
-	function storefront_comment( $comment, $args, $depth ) {
+	function restroom_comment( $comment, $args, $depth ) {
 		if ( 'div' === $args['style'] ) {
 			$tag       = 'div';
 			$add_below = 'comment';
@@ -42,10 +42,10 @@ if ( ! function_exists( 'storefront_comment' ) ) {
 		<div class="comment-meta commentmetadata">
 			<div class="comment-author vcard">
 			<?php echo get_avatar( $comment, 128 ); ?>
-			<?php printf( wp_kses_post( '<cite class="fn">%s</cite>', 'storefront' ), get_comment_author_link() ); ?>
+			<?php printf( wp_kses_post( '<cite class="fn">%s</cite>', 'restroom' ), get_comment_author_link() ); ?>
 			</div>
 			<?php if ( '0' === $comment->comment_approved ) : ?>
-				<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'storefront' ); ?></em>
+				<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'restroom' ); ?></em>
 				<br />
 			<?php endif; ?>
 
@@ -72,7 +72,7 @@ if ( ! function_exists( 'storefront_comment' ) ) {
 			)
 		);
 		?>
-		<?php edit_comment_link( __( 'Edit', 'storefront' ), '  ', '' ); ?>
+		<?php edit_comment_link( __( 'Edit', 'restroom' ), '  ', '' ); ?>
 		</div>
 		</div>
 		<?php if ( 'div' !== $args['style'] ) : ?>
@@ -82,16 +82,16 @@ if ( ! function_exists( 'storefront_comment' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_footer_widgets' ) ) {
+if ( ! function_exists( 'restroom_footer_widgets' ) ) {
 	/**
 	 * Display the footer widget regions.
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function storefront_footer_widgets() {
-		$rows    = intval( apply_filters( 'storefront_footer_widget_rows', 1 ) );
-		$regions = intval( apply_filters( 'storefront_footer_widget_columns', 4 ) );
+	function restroom_footer_widgets() {
+		$rows    = intval( apply_filters( 'restroom_footer_widget_rows', 1 ) );
+		$regions = intval( apply_filters( 'restroom_footer_widget_columns', 4 ) );
 
 		for ( $row = 1; $row <= $rows; $row++ ) :
 
@@ -127,33 +127,33 @@ if ( ! function_exists( 'storefront_footer_widgets' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_credit' ) ) {
+if ( ! function_exists( 'restroom_credit' ) ) {
 	/**
 	 * Display the theme credit
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function storefront_credit() {
+	function restroom_credit() {
 		$links_output = '';
 
-		if ( apply_filters( 'storefront_credit_link', true ) ) {
-			if ( storefront_is_woocommerce_activated() ) {
-				$links_output .= '<a href="https://woocommerce.com" target="_blank" title="' . esc_attr__( 'WooCommerce - The Best eCommerce Platform for WordPress', 'storefront' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with WooCommerce', 'storefront' ) . '</a>.';
+		if ( apply_filters( 'restroom_credit_link', true ) ) {
+			if ( restroom_is_poocommerce_activated() ) {
+				$links_output .= '<a href="https://poocommerce.com" target="_blank" title="' . esc_attr__( 'PooCommerce - The Best eCommerce Platform for NotMattPress', 'restroom' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with PooCommerce', 'restroom' ) . '</a>.';
 			} else {
-				$links_output .= '<a href="https://woocommerce.com/products/storefront/" target="_blank" title="' . esc_attr__( 'Storefront -  The perfect platform for your next WooCommerce project.', 'storefront' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with Storefront', 'storefront' ) . '</a>.';
+				$links_output .= '<a href="https://poocommerce.com/products/restroom/" target="_blank" title="' . esc_attr__( 'Restroom -  The perfect platform for your next PooCommerce project.', 'restroom' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with Restroom', 'restroom' ) . '</a>.';
 			}
 		}
 
-		if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
+		if ( apply_filters( 'restroom_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
 			$separator    = '<span role="separator" aria-hidden="true"></span>';
 			$links_output = get_the_privacy_policy_link( '', ( ! empty( $links_output ) ? $separator : '' ) ) . $links_output;
 		}
 
-		$links_output = apply_filters( 'storefront_credit_links_output', $links_output );
+		$links_output = apply_filters( 'restroom_credit_links_output', $links_output );
 		?>
 		<div class="site-info">
-			<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . gmdate( 'Y' ) ) ); ?>
+			<?php echo esc_html( apply_filters( 'restroom_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . gmdate( 'Y' ) ) ); ?>
 
 			<?php if ( ! empty( $links_output ) ) { ?>
 				<br />
@@ -164,13 +164,13 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_header_widget_region' ) ) {
+if ( ! function_exists( 'restroom_header_widget_region' ) ) {
 	/**
 	 * Display header widget region
 	 *
 	 * @since  1.0.0
 	 */
-	function storefront_header_widget_region() {
+	function restroom_header_widget_region() {
 		if ( is_active_sidebar( 'header-1' ) ) {
 			?>
 		<div class="header-widget-region" role="complementary">
@@ -183,23 +183,23 @@ if ( ! function_exists( 'storefront_header_widget_region' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_site_branding' ) ) {
+if ( ! function_exists( 'restroom_site_branding' ) ) {
 	/**
 	 * Site branding wrapper and display
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function storefront_site_branding() {
+	function restroom_site_branding() {
 		?>
 		<div class="site-branding">
-			<?php storefront_site_title_or_logo(); ?>
+			<?php restroom_site_title_or_logo(); ?>
 		</div>
 		<?php
 	}
 }
 
-if ( ! function_exists( 'storefront_site_title_or_logo' ) ) {
+if ( ! function_exists( 'restroom_site_title_or_logo' ) ) {
 	/**
 	 * Display the site title or logo
 	 *
@@ -207,7 +207,7 @@ if ( ! function_exists( 'storefront_site_title_or_logo' ) ) {
 	 * @param bool $echo Echo the string or return it.
 	 * @return string
 	 */
-	function storefront_site_title_or_logo( $echo = true ) {
+	function restroom_site_title_or_logo( $echo = true ) {
 		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			$logo = get_custom_logo();
 			$html = is_home() ? '<h1 class="logo">' . $logo . '</h1>' : $logo;
@@ -225,21 +225,21 @@ if ( ! function_exists( 'storefront_site_title_or_logo' ) ) {
 			return $html;
 		}
 
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $html; // phpcs:ignore NotMattPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
-if ( ! function_exists( 'storefront_primary_navigation' ) ) {
+if ( ! function_exists( 'restroom_primary_navigation' ) ) {
 	/**
 	 * Display Primary Navigation
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function storefront_primary_navigation() {
+	function restroom_primary_navigation() {
 		?>
-		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'storefront' ); ?>">
-		<button id="site-navigation-menu-toggle" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_html( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button>
+		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'restroom' ); ?>">
+		<button id="site-navigation-menu-toggle" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_html( apply_filters( 'restroom_menu_toggle_text', __( 'Menu', 'restroom' ) ) ); ?></span></button>
 			<?php
 			wp_nav_menu(
 				array(
@@ -260,17 +260,17 @@ if ( ! function_exists( 'storefront_primary_navigation' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_secondary_navigation' ) ) {
+if ( ! function_exists( 'restroom_secondary_navigation' ) ) {
 	/**
 	 * Display Secondary Navigation
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
-	function storefront_secondary_navigation() {
+	function restroom_secondary_navigation() {
 		if ( has_nav_menu( 'secondary' ) ) {
 			?>
-			<nav class="secondary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'storefront' ); ?>">
+			<nav class="secondary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'restroom' ); ?>">
 				<?php
 					wp_nav_menu(
 						array(
@@ -285,29 +285,29 @@ if ( ! function_exists( 'storefront_secondary_navigation' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_skip_links' ) ) {
+if ( ! function_exists( 'restroom_skip_links' ) ) {
 	/**
 	 * Skip links
 	 *
 	 * @since  1.4.1
 	 * @return void
 	 */
-	function storefront_skip_links() {
+	function restroom_skip_links() {
 		?>
-		<a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_html_e( 'Skip to navigation', 'storefront' ); ?></a>
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'storefront' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_html_e( 'Skip to navigation', 'restroom' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'restroom' ); ?></a>
 		<?php
 	}
 }
 
-if ( ! function_exists( 'storefront_homepage_header' ) ) {
+if ( ! function_exists( 'restroom_homepage_header' ) ) {
 	/**
 	 * Display the page header without the featured image
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_homepage_header() {
-		edit_post_link( __( 'Edit this section', 'storefront' ), '', '', '', 'button storefront-hero__button-edit' );
+	function restroom_homepage_header() {
+		edit_post_link( __( 'Edit this section', 'restroom' ), '', '', '', 'button restroom-hero__button-edit' );
 		?>
 		<header class="entry-header">
 			<?php
@@ -318,13 +318,13 @@ if ( ! function_exists( 'storefront_homepage_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_page_header' ) ) {
+if ( ! function_exists( 'restroom_page_header' ) ) {
 	/**
 	 * Display the page header
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_page_header() {
+	function restroom_page_header() {
 		if ( is_front_page() && is_page_template( 'template-fullwidth.php' ) ) {
 			return;
 		}
@@ -332,7 +332,7 @@ if ( ! function_exists( 'storefront_page_header' ) ) {
 		?>
 		<header class="entry-header">
 			<?php
-			storefront_post_thumbnail( 'full' );
+			restroom_post_thumbnail( 'full' );
 			the_title( '<h1 class="entry-title">', '</h1>' );
 			?>
 		</header><!-- .entry-header -->
@@ -340,20 +340,20 @@ if ( ! function_exists( 'storefront_page_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_page_content' ) ) {
+if ( ! function_exists( 'restroom_page_content' ) ) {
 	/**
 	 * Display the post content
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_page_content() {
+	function restroom_page_content() {
 		?>
 		<div class="entry-content">
 			<?php the_content(); ?>
 			<?php
 				wp_link_pages(
 					array(
-						'before' => '<div class="page-links">' . __( 'Pages:', 'storefront' ),
+						'before' => '<div class="page-links">' . __( 'Pages:', 'restroom' ),
 						'after'  => '</div>',
 					)
 				);
@@ -363,23 +363,23 @@ if ( ! function_exists( 'storefront_page_content' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_post_header' ) ) {
+if ( ! function_exists( 'restroom_post_header' ) ) {
 	/**
 	 * Display the post header with a link to the single post
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_post_header() {
+	function restroom_post_header() {
 		?>
 		<header class="entry-header">
 		<?php
 
 		/**
-		 * Functions hooked in to storefront_post_header_before action.
+		 * Functions hooked in to restroom_post_header_before action.
 		 *
-		 * @hooked storefront_post_meta - 10
+		 * @hooked restroom_post_meta - 10
 		 */
-		do_action( 'storefront_post_header_before' );
+		do_action( 'restroom_post_header_before' );
 
 		if ( is_single() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -387,44 +387,44 @@ if ( ! function_exists( 'storefront_post_header' ) ) {
 			the_title( sprintf( '<h2 class="alpha entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 		}
 
-		do_action( 'storefront_post_header_after' );
+		do_action( 'restroom_post_header_after' );
 		?>
 		</header><!-- .entry-header -->
 		<?php
 	}
 }
 
-if ( ! function_exists( 'storefront_post_content' ) ) {
+if ( ! function_exists( 'restroom_post_content' ) ) {
 	/**
 	 * Display the post content with a link to the single post
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_post_content() {
+	function restroom_post_content() {
 		?>
 		<div class="entry-content">
 		<?php
 
 		/**
-		 * Functions hooked in to storefront_post_content_before action.
+		 * Functions hooked in to restroom_post_content_before action.
 		 *
-		 * @hooked storefront_post_thumbnail - 10
+		 * @hooked restroom_post_thumbnail - 10
 		 */
-		do_action( 'storefront_post_content_before' );
+		do_action( 'restroom_post_content_before' );
 
 		the_content(
 			sprintf(
 				/* translators: %s: post title */
-				__( 'Continue reading %s', 'storefront' ),
+				__( 'Continue reading %s', 'restroom' ),
 				'<span class="screen-reader-text">' . get_the_title() . '</span>'
 			)
 		);
 
-		do_action( 'storefront_post_content_after' );
+		do_action( 'restroom_post_content_after' );
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'storefront' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'restroom' ),
 				'after'  => '</div>',
 			)
 		);
@@ -434,13 +434,13 @@ if ( ! function_exists( 'storefront_post_content' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_post_meta' ) ) {
+if ( ! function_exists( 'restroom_post_meta' ) ) {
 	/**
 	 * Display the post meta
 	 *
 	 * @since 1.0.0
 	 */
-	function storefront_post_meta() {
+	function restroom_post_meta() {
 		if ( 'post' !== get_post_type() ) {
 			return;
 		}
@@ -465,13 +465,13 @@ if ( ! function_exists( 'storefront_post_meta' ) ) {
 		$posted_on = '
 			<span class="posted-on">' .
 			/* translators: %s: post date */
-			sprintf( __( 'Posted on %s', 'storefront' ), $output_time_string ) .
+			sprintf( __( 'Posted on %s', 'restroom' ), $output_time_string ) .
 			'</span>';
 
 		// Author.
 		$author = sprintf(
 			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
-			__( 'by', 'storefront' ),
+			__( 'by', 'restroom' ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
@@ -480,7 +480,7 @@ if ( ! function_exists( 'storefront_post_meta' ) ) {
 		$comments = '';
 
 		if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
-			$comments_number = get_comments_number_text( __( 'Leave a comment', 'storefront' ), __( '1 Comment', 'storefront' ), __( '% Comments', 'storefront' ) );
+			$comments_number = get_comments_number_text( __( 'Leave a comment', 'restroom' ), __( '1 Comment', 'restroom' ), __( '% Comments', 'restroom' ) );
 
 			$comments = sprintf(
 				'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
@@ -509,18 +509,18 @@ if ( ! function_exists( 'storefront_post_meta' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_edit_post_link' ) ) {
+if ( ! function_exists( 'restroom_edit_post_link' ) ) {
 	/**
 	 * Display the edit link
 	 *
 	 * @since 2.5.0
 	 */
-	function storefront_edit_post_link() {
+	function restroom_edit_post_link() {
 		edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'storefront' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'restroom' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -535,30 +535,30 @@ if ( ! function_exists( 'storefront_edit_post_link' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_post_taxonomy' ) ) {
+if ( ! function_exists( 'restroom_post_taxonomy' ) ) {
 	/**
 	 * Display the post taxonomies
 	 *
 	 * @since 2.4.0
 	 */
-	function storefront_post_taxonomy() {
+	function restroom_post_taxonomy() {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'storefront' ) );
+		$categories_list = get_the_category_list( __( ', ', 'restroom' ) );
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'storefront' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'restroom' ) );
 		?>
 
 		<aside class="entry-taxonomy">
 			<?php if ( $categories_list ) : ?>
 			<div class="cat-links">
-				<?php echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'storefront' ) ); ?> <?php echo wp_kses_post( $categories_list ); ?>
+				<?php echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'restroom' ) ); ?> <?php echo wp_kses_post( $categories_list ); ?>
 			</div>
 			<?php endif; ?>
 
 			<?php if ( $tags_list ) : ?>
 			<div class="tags-links">
-				<?php echo esc_html( _n( 'Tag:', 'Tags:', count( get_the_tags() ), 'storefront' ) ); ?> <?php echo wp_kses_post( $tags_list ); ?>
+				<?php echo esc_html( _n( 'Tag:', 'Tags:', count( get_the_tags() ), 'restroom' ) ); ?> <?php echo wp_kses_post( $tags_list ); ?>
 			</div>
 			<?php endif; ?>
 		</aside>
@@ -567,37 +567,37 @@ if ( ! function_exists( 'storefront_post_taxonomy' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_paging_nav' ) ) {
+if ( ! function_exists( 'restroom_paging_nav' ) ) {
 	/**
 	 * Display navigation to next/previous set of posts when applicable.
 	 */
-	function storefront_paging_nav() {
+	function restroom_paging_nav() {
 		global $wp_query;
 
 		$args = array(
 			'type'      => 'list',
-			'next_text' => _x( 'Next', 'Next post', 'storefront' ),
-			'prev_text' => _x( 'Previous', 'Previous post', 'storefront' ),
+			'next_text' => _x( 'Next', 'Next post', 'restroom' ),
+			'prev_text' => _x( 'Previous', 'Previous post', 'restroom' ),
 		);
 
 		the_posts_pagination( $args );
 	}
 }
 
-if ( ! function_exists( 'storefront_post_nav' ) ) {
+if ( ! function_exists( 'restroom_post_nav' ) ) {
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 */
-	function storefront_post_nav() {
+	function restroom_post_nav() {
 		$args = array(
-			'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next post:', 'storefront' ) . ' </span>%title',
-			'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous post:', 'storefront' ) . ' </span>%title',
+			'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next post:', 'restroom' ) . ' </span>%title',
+			'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous post:', 'restroom' ) . ' </span>%title',
 		);
 		the_post_navigation( $args );
 	}
 }
 
-if ( ! function_exists( 'storefront_homepage_content' ) ) {
+if ( ! function_exists( 'restroom_homepage_content' ) ) {
 	/**
 	 * Display homepage content
 	 * Hooked into the `homepage` action in the homepage template
@@ -605,7 +605,7 @@ if ( ! function_exists( 'storefront_homepage_content' ) ) {
 	 * @since  1.0.0
 	 * @return  void
 	 */
-	function storefront_homepage_content() {
+	function restroom_homepage_content() {
 		while ( have_posts() ) {
 			the_post();
 
@@ -615,7 +615,7 @@ if ( ! function_exists( 'storefront_homepage_content' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_social_icons' ) ) {
+if ( ! function_exists( 'restroom_social_icons' ) ) {
 	/**
 	 * Display social icons
 	 * If the subscribe and connect plugin is active, display the icons.
@@ -623,7 +623,7 @@ if ( ! function_exists( 'storefront_social_icons' ) ) {
 	 * @link http://wordpress.org/plugins/subscribe-and-connect/
 	 * @since 1.0.0
 	 */
-	function storefront_social_icons() {
+	function restroom_social_icons() {
 		if ( class_exists( 'Subscribe_And_Connect' ) ) {
 			echo '<div class="subscribe-and-connect-connect">';
 			subscribe_and_connect_connect();
@@ -632,19 +632,19 @@ if ( ! function_exists( 'storefront_social_icons' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_get_sidebar' ) ) {
+if ( ! function_exists( 'restroom_get_sidebar' ) ) {
 	/**
-	 * Display storefront sidebar
+	 * Display restroom sidebar
 	 *
 	 * @uses get_sidebar()
 	 * @since 1.0.0
 	 */
-	function storefront_get_sidebar() {
+	function restroom_get_sidebar() {
 		get_sidebar();
 	}
 }
 
-if ( ! function_exists( 'storefront_post_thumbnail' ) ) {
+if ( ! function_exists( 'restroom_post_thumbnail' ) ) {
 	/**
 	 * Display post thumbnail
 	 *
@@ -654,45 +654,45 @@ if ( ! function_exists( 'storefront_post_thumbnail' ) ) {
 	 * @param string $size the post thumbnail size.
 	 * @since 1.5.0
 	 */
-	function storefront_post_thumbnail( $size = 'full' ) {
+	function restroom_post_thumbnail( $size = 'full' ) {
 		if ( has_post_thumbnail() ) {
 			the_post_thumbnail( $size );
 		}
 	}
 }
 
-if ( ! function_exists( 'storefront_primary_navigation_wrapper' ) ) {
+if ( ! function_exists( 'restroom_primary_navigation_wrapper' ) ) {
 	/**
 	 * The primary navigation wrapper
 	 */
-	function storefront_primary_navigation_wrapper() {
-		echo '<div class="storefront-primary-navigation"><div class="col-full">';
+	function restroom_primary_navigation_wrapper() {
+		echo '<div class="restroom-primary-navigation"><div class="col-full">';
 	}
 }
 
-if ( ! function_exists( 'storefront_primary_navigation_wrapper_close' ) ) {
+if ( ! function_exists( 'restroom_primary_navigation_wrapper_close' ) ) {
 	/**
 	 * The primary navigation wrapper close
 	 */
-	function storefront_primary_navigation_wrapper_close() {
+	function restroom_primary_navigation_wrapper_close() {
 		echo '</div></div>';
 	}
 }
 
-if ( ! function_exists( 'storefront_header_container' ) ) {
+if ( ! function_exists( 'restroom_header_container' ) ) {
 	/**
 	 * The header container
 	 */
-	function storefront_header_container() {
+	function restroom_header_container() {
 		echo '<div class="col-full">';
 	}
 }
 
-if ( ! function_exists( 'storefront_header_container_close' ) ) {
+if ( ! function_exists( 'restroom_header_container_close' ) ) {
 	/**
 	 * The header container close
 	 */
-	function storefront_header_container_close() {
+	function restroom_header_container_close() {
 		echo '</div>';
 	}
 }

@@ -2,7 +2,7 @@
 /**
  * Class to create a custom arbitrary html control for dividers etc
  *
- * @package  storefront
+ * @package  restroom
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The arbitrary control class
  */
-class Arbitrary_Storefront_Control extends WP_Customize_Control {
+class Arbitrary_Restroom_Control extends WP_Customize_Control {
 
 	/**
 	 * The settings var
