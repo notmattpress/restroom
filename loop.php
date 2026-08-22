@@ -5,10 +5,10 @@
  * Included on pages like index.php, archive.php and search.php to display a loop of posts
  * Learn more: https://codex.wordpress.org/The_Loop
  *
- * @package storefront
+ * @package restroom
  */
 
-do_action( 'storefront_loop_before' );
+do_action( 'restroom_loop_before' );
 
 while ( have_posts() ) :
 	the_post();
@@ -23,8 +23,8 @@ while ( have_posts() ) :
 endwhile;
 
 /**
- * Functions hooked in to storefront_paging_nav action
+ * Functions hooked in to restroom_paging_nav action
  *
- * @hooked storefront_paging_nav - 10
+ * @hooked restroom_paging_nav - 10
  */
-do_action( 'storefront_loop_after' );
+do_action( 'restroom_loop_after' );

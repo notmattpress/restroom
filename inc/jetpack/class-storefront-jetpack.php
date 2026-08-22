@@ -1,8 +1,8 @@
 <?php
 /**
- * Storefront Jetpack Class
+ * Restroom Jetpack Class
  *
- * @package  storefront
+ * @package  restroom
  * @since    2.0.0
  */
 
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront_Jetpack' ) ) :
+if ( ! class_exists( 'Restroom_Jetpack' ) ) :
 
 	/**
-	 * The Storefront Jetpack integration class
+	 * The Restroom Jetpack integration class
 	 */
-	class Storefront_Jetpack {
+	class Restroom_Jetpack {
 
 		/**
 		 * Setup class.
@@ -26,7 +26,7 @@ if ( ! class_exists( 'Storefront_Jetpack' ) ) :
 			add_action( 'init', array( $this, 'jetpack_setup' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'jetpack_scripts' ), 10 );
 
-			if ( storefront_is_woocommerce_activated() ) {
+			if ( restroom_is_poocommerce_activated() ) {
 				add_action( 'init', array( $this, 'jetpack_infinite_scroll_wrapper_columns' ) );
 			}
 		}
@@ -39,7 +39,7 @@ if ( ! class_exists( 'Storefront_Jetpack' ) ) :
 			add_theme_support(
 				'infinite-scroll',
 				apply_filters(
-					'storefront_jetpack_infinite_scroll_args',
+					'restroom_jetpack_infinite_scroll_args',
 					array(
 						'container'      => 'main',
 						'footer'         => 'page',
@@ -61,28 +61,28 @@ if ( ! class_exists( 'Storefront_Jetpack' ) ) :
 		 * @return void
 		 */
 		public function jetpack_infinite_scroll_loop() {
-			do_action( 'storefront_jetpack_infinite_scroll_before' );
+			do_action( 'restroom_jetpack_infinite_scroll_before' );
 
-			if ( function_exists( 'storefront_is_product_archive' ) && storefront_is_product_archive() ) {
-				do_action( 'storefront_jetpack_product_infinite_scroll_before' );
-				woocommerce_product_loop_start();
+			if ( function_exists( 'restroom_is_product_archive' ) && restroom_is_product_archive() ) {
+				do_action( 'restroom_jetpack_product_infinite_scroll_before' );
+				poocommerce_product_loop_start();
 			}
 
 			while ( have_posts() ) :
 				the_post();
-				if ( function_exists( 'storefront_is_product_archive' ) && storefront_is_product_archive() ) {
+				if ( function_exists( 'restroom_is_product_archive' ) && restroom_is_product_archive() ) {
 					wc_get_template_part( 'content', 'product' );
 				} else {
 					get_template_part( 'content', get_post_format() );
 				}
 			endwhile; // end of the loop.
 
-			if ( function_exists( 'storefront_is_product_archive' ) && storefront_is_product_archive() ) {
-				woocommerce_product_loop_end();
-				do_action( 'storefront_jetpack_product_infinite_scroll_after' );
+			if ( function_exists( 'restroom_is_product_archive' ) && restroom_is_product_archive() ) {
+				poocommerce_product_loop_end();
+				do_action( 'restroom_jetpack_product_infinite_scroll_after' );
 			}
 
-			do_action( 'storefront_jetpack_infinite_scroll_after' );
+			do_action( 'restroom_jetpack_infinite_scroll_after' );
 		}
 
 		/**
@@ -91,8 +91,8 @@ if ( ! class_exists( 'Storefront_Jetpack' ) ) :
 		 * @return void
 		 */
 		public function jetpack_infinite_scroll_wrapper_columns() {
-			add_action( 'storefront_jetpack_product_infinite_scroll_before', 'storefront_product_columns_wrapper' );
-			add_action( 'storefront_jetpack_product_infinite_scroll_after', 'storefront_product_columns_wrapper_close' );
+			add_action( 'restroom_jetpack_product_infinite_scroll_before', 'restroom_product_columns_wrapper' );
+			add_action( 'restroom_jetpack_product_infinite_scroll_after', 'restroom_product_columns_wrapper_close' );
 		}
 
 		/**
@@ -101,18 +101,18 @@ if ( ! class_exists( 'Storefront_Jetpack' ) ) :
 		 * @since  1.6.1
 		 */
 		public function jetpack_scripts() {
-			global $storefront_version;
+			global $restroom_version;
 
 			if ( wp_style_is( 'the-neverending-homepage', 'enqueued' ) ) {
-				wp_enqueue_style( 'storefront-jetpack-infinite-scroll', get_template_directory_uri() . '/assets/css/jetpack/infinite-scroll.css', array( 'the-neverending-homepage' ), $storefront_version );
-				wp_style_add_data( 'storefront-jetpack-infinite-scroll', 'rtl', 'replace' );
+				wp_enqueue_style( 'restroom-jetpack-infinite-scroll', get_template_directory_uri() . '/assets/css/jetpack/infinite-scroll.css', array( 'the-neverending-homepage' ), $restroom_version );
+				wp_style_add_data( 'restroom-jetpack-infinite-scroll', 'rtl', 'replace' );
 			}
 
-			wp_enqueue_style( 'storefront-jetpack-widgets', get_template_directory_uri() . '/assets/css/jetpack/widgets.css', array(), $storefront_version );
-			wp_style_add_data( 'storefront-jetpack-widgets', 'rtl', 'replace' );
+			wp_enqueue_style( 'restroom-jetpack-widgets', get_template_directory_uri() . '/assets/css/jetpack/widgets.css', array(), $restroom_version );
+			wp_style_add_data( 'restroom-jetpack-widgets', 'rtl', 'replace' );
 		}
 	}
 
 endif;
 
-return new Storefront_Jetpack();
+return new Restroom_Jetpack();
