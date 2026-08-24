@@ -9,15 +9,17 @@
 	<exclude-pattern>*/languages/*</exclude-pattern>
 
 	<!-- Configs -->
-	<config name="minimum_supported_wp_version" value="5.3" />
-	<config name="testVersion" value="7.0-" />
+	<config name="minimum_wp_version" value="5.3" />
+	<config name="testVersion" value="7.4-" />
 
 	<!-- Rules -->
 	<rule ref="WooCommerce-Core" />
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="storefront" />
+			<property name="text_domain" type="array">
+				<element value="storefront"/>
+			</property>
 		</properties>
 	</rule>
 
