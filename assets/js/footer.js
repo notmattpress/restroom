@@ -8,7 +8,7 @@
 	// Wait for DOM to be ready.
 	document.addEventListener( 'DOMContentLoaded', function () {
 		if (
-			document.getElementsByClassName( 'storefront-handheld-footer-bar' )
+			document.getElementsByClassName( 'restroom-handheld-footer-bar' )
 				.length === 0
 		) {
 			return;
@@ -17,7 +17,7 @@
 		// Add class to footer search when clicked.
 		[].forEach.call(
 			document.querySelectorAll(
-				'.storefront-handheld-footer-bar .search > a'
+				'.restroom-handheld-footer-bar .search > a'
 			),
 			function ( anchor ) {
 				anchor.addEventListener( 'click', function ( event ) {
@@ -30,7 +30,7 @@
 		// Add focus class to body when an input field is focused.
 		// This is used to hide the Handheld Footer Bar when an input is focused.
 		const footerBar = document.getElementsByClassName(
-			'storefront-handheld-footer-bar'
+			'restroom-handheld-footer-bar'
 		);
 		const forms = document.forms;
 		const isFocused = function ( focused ) {

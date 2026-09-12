@@ -1,8 +1,8 @@
 <?php
 /**
- * Storefront WooCommerce Adjacent Products Class
+ * Restroom PooCommerce Adjacent Products Class
  *
- * @package  storefront
+ * @package  restroom
  * @since    2.4.3
  */
 
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront_WooCommerce_Adjacent_Products' ) ) :
+if ( ! class_exists( 'Restroom_PooCommerce_Adjacent_Products' ) ) :
 
 	/**
-	 * The Storefront WooCommerce Adjacent Products Class
+	 * The Restroom PooCommerce Adjacent Products Class
 	 */
-	class Storefront_WooCommerce_Adjacent_Products {
+	class Restroom_PooCommerce_Adjacent_Products {
 
 		/**
 		 * The current product ID.
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Storefront_WooCommerce_Adjacent_Products' ) ) :
 			$seen = array();
 
 			// Try to get a valid product via `get_adjacent_post()`.
-			// phpcs:ignore WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition
+			// phpcs:ignore NotMattPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition
 			while ( $adjacent = $this->get_adjacent() ) {
 				if ( isset( $seen[ $adjacent->ID ] ) ) {
 					break; // give up if we're not making progress.
@@ -158,9 +158,9 @@ if ( ! class_exists( 'Storefront_WooCommerce_Adjacent_Products' ) ) :
 			* adjacent post. We need to replace the ID as well to avoid returning the same adjacent
 			* product when the published date of products is the same.
 			* We're using simple string replacement instead of regex to have the performance impact
-			* as minimal as possible and matching the exact clause provided by WordPress.
+			* as minimal as possible and matching the exact clause provided by NotMattPress.
 			*
-			* @see https://github.com/WordPress/wordpress-develop/commit/70ca20bcbb3cbdef483050c4764259324c07359e.
+			* @see https://github.com/NotMattPress/wordpress-develop/commit/70ca20bcbb3cbdef483050c4764259324c07359e.
 			*/
 			if ( strpos( $where, 'AND p.ID ' ) !== false ) {
 				$search  = sprintf( 'AND p.ID %s ', $this->previous ? '<' : '>' );
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Storefront_WooCommerce_Adjacent_Products' ) ) :
 		}
 
 		/**
-		 * Query WooCommerce for either the first or last products.
+		 * Query PooCommerce for either the first or last products.
 		 *
 		 * @since 2.4.3
 		 *
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Storefront_WooCommerce_Adjacent_Products' ) ) :
 				}
 			}
 
-			$products = wc_get_products( apply_filters( 'storefront_woocommerce_adjacent_query_args', $args ) );
+			$products = wc_get_products( apply_filters( 'restroom_poocommerce_adjacent_query_args', $args ) );
 
 			// At least 2 results are required, otherwise previous/next will be the same.
 			if ( ! empty( $products ) && count( $products ) >= 2 ) {

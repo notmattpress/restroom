@@ -4,8 +4,8 @@
  */
 ( function () {
 	if (
-		document.body.classList.contains( 'woocommerce-cart' ) ||
-		document.body.classList.contains( 'woocommerce-checkout' ) ||
+		document.body.classList.contains( 'poocommerce-cart' ) ||
+		document.body.classList.contains( 'poocommerce-checkout' ) ||
 		window.innerWidth < 768 ||
 		! document.getElementById( 'site-header-cart' )
 	) {

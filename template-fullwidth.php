@@ -4,7 +4,7 @@
  *
  * Template Name: Full width
  *
- * @package storefront
+ * @package restroom
  */
 
 get_header(); ?>
@@ -16,16 +16,16 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 
-				do_action( 'storefront_page_before' );
+				do_action( 'restroom_page_before' );
 
 				get_template_part( 'content', 'page' );
 
 				/**
-				 * Functions hooked in to storefront_page_after action
+				 * Functions hooked in to restroom_page_after action
 				 *
-				 * @hooked storefront_display_comments - 10
+				 * @hooked restroom_display_comments - 10
 				 */
-				do_action( 'storefront_page_after' );
+				do_action( 'restroom_page_after' );
 
 			endwhile; // End of the loop.
 			?>

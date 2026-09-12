@@ -22,8 +22,8 @@
  */
 .hentry .entry-content {
 
-	.storefront-align-wide.page-template-template-fullwidth-php & .alignfull,
-	.storefront-align-wide.storefront-full-width-content & .alignfull {
+	.restroom-align-wide.page-template-template-fullwidth-php & .alignfull,
+	.restroom-align-wide.restroom-full-width-content & .alignfull {
 		margin-left: calc(50% - 50vw);
 		margin-right: calc(50% - 50vw);
 		width: auto;
@@ -32,8 +32,8 @@
 	// Global
 	@media ( min-width: $container-width ) {
 
-		.storefront-align-wide.page-template-template-fullwidth-php &,
-		.storefront-align-wide.storefront-full-width-content & {
+		.restroom-align-wide.page-template-template-fullwidth-php &,
+		.restroom-align-wide.restroom-full-width-content & {
 
 			.alignwide {
 				width: auto;
@@ -55,8 +55,8 @@
 
 		@media ( min-width: $container-width ) {
 
-			.storefront-align-wide.page-template-template-fullwidth-php &,
-			.storefront-align-wide.storefront-full-width-content & {
+			.restroom-align-wide.page-template-template-fullwidth-php &,
+			.restroom-align-wide.restroom-full-width-content & {
 
 				&.alignfull,
 				&.alignwide {
@@ -72,8 +72,8 @@
 
 		@media ( min-width: $container-width ) {
 
-			.storefront-align-wide.page-template-template-fullwidth-php &,
-			.storefront-align-wide.storefront-full-width-content & {
+			.restroom-align-wide.page-template-template-fullwidth-php &,
+			.restroom-align-wide.restroom-full-width-content & {
 
 				&.alignfull,
 				&.alignwide {
@@ -98,15 +98,15 @@
 				margin-bottom: ms(7);
 			}
 
-			h2 + .woocommerce,
-			h2 + [class*="wp-block-woocommerce-"] {
+			h2 + .poocommerce,
+			h2 + [class*="wp-block-poocommerce-"] {
 				margin-top: ms(4);
 			}
 		}
 	}
 }
 
-.home.storefront-align-wide.page-template-template-fullwidth {
+.home.restroom-align-wide.page-template-template-fullwidth {
 
 	.hentry {
 
@@ -253,7 +253,7 @@
 				}
 			}
 
-			body:not(.page-template-template-fullwidth-php):not(.storefront-full-width-content) & {
+			body:not(.page-template-template-fullwidth-php):not(.restroom-full-width-content) & {
 
 				@for $i from 2 through 6 {
 					&.columns-#{$i} li {
@@ -470,8 +470,8 @@
 
 		@media ( min-width: $container-width ) {
 
-			.storefront-align-wide.page-template-template-fullwidth-php &,
-			.storefront-align-wide.storefront-full-width-content & {
+			.restroom-align-wide.page-template-template-fullwidth-php &,
+			.restroom-align-wide.restroom-full-width-content & {
 
 				&.alignfull,
 				&.alignwide {
@@ -521,7 +521,7 @@
 				}
 			}
 
-			body:not(.page-template-template-fullwidth-php):not(.storefront-full-width-content) & {
+			body:not(.page-template-template-fullwidth-php):not(.restroom-full-width-content) & {
 
 				.blocks-gallery-image,
 				.blocks-gallery-item {
@@ -631,7 +631,7 @@
 					padding-right: 0;
 				}
 
-				body:not(.page-template-template-fullwidth-php):not(.storefront-full-width-content) & {
+				body:not(.page-template-template-fullwidth-php):not(.restroom-full-width-content) & {
 					padding-right: gutter(9);
 
 					&:nth-of-type(even) {
@@ -666,7 +666,7 @@
 					margin-right: gutter(12);
 				}
 
-				body:not(.page-template-template-fullwidth-php):not(.storefront-full-width-content) & {
+				body:not(.page-template-template-fullwidth-php):not(.restroom-full-width-content) & {
 					padding-right: 0;
 
 					&:not(:last-child) {

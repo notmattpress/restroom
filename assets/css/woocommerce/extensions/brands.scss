@@ -1,5 +1,5 @@
 /**
- * WooCommerce Brands
+ * PooCommerce Brands
  */
 
 /**
@@ -40,7 +40,7 @@
 }
 
 /**
- * WooCommerce Brand Layered Nav
+ * PooCommerce Brand Layered Nav
  */
 .widget_brand_nav {
 
@@ -56,11 +56,11 @@
 }
 
 /**
- * WooCommerce Brand Archive
+ * PooCommerce Brand Archive
  */
 .tax-product_brand {
 
-	.woocommerce-products-header {
+	.poocommerce-products-header {
 		display: flex;
 		flex-direction: column;
 		margin: 0 0 ms(4);
@@ -74,7 +74,7 @@
 			order: 1;
 		}
 
-		.woocommerce-products-header__title,
+		.poocommerce-products-header__title,
 		.term-description {
 			order: 2;
 		}
@@ -140,9 +140,9 @@ div#brands_a_z {
 }
 
 /**
- * WooCommerce Brand single product
+ * PooCommerce Brand single product
  */
-.storefront-wc-brands-single-product {
+.restroom-wc-brands-single-product {
 	margin: 0 0 ms(-3);
 
 	img {

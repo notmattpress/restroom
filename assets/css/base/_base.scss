@@ -1,5 +1,5 @@
 /**
- * Global styles applied to all non-woocommerce theme components.
+ * Global styles applied to all non-poocommerce theme components.
  * Includes styles for:
  *
  * Typography
@@ -258,12 +258,12 @@ textarea,
 button {
 
 	&:focus {
-		outline: 2px solid $color_woocommerce;
+		outline: 2px solid $color_poocommerce;
 	}
 }
 
 // Wait, what..?
-.storefront-cute * {
+.restroom-cute * {
 	font-family: "Comic Sans MS", sans-serif;
 }
 
@@ -404,7 +404,7 @@ body {
 		padding-bottom: ms(5);
 		position: relative;
 
-		.storefront-hero__button-edit {
+		.restroom-hero__button-edit {
 			position: absolute;
 			top: 1em;
 			right: 1em;
@@ -949,7 +949,7 @@ input[type="submit"],
 	}
 }
 
-.button.woocommerce-MyAccount-downloads-file {
+.button.poocommerce-MyAccount-downloads-file {
 	@include wrap-break-word;
 }
 
@@ -1412,7 +1412,7 @@ button.menu-toggle {
  * Pagination
  */
 .pagination,
-.woocommerce-pagination {
+.poocommerce-pagination {
 	padding: 1em 0;
 	border: 1px solid $color_border;
 	border-width: 1px 0;
@@ -1468,7 +1468,7 @@ button.menu-toggle {
 .rtl {
 
 	.pagination,
-	.woocommerce-pagination {
+	.poocommerce-pagination {
 
 		a.next,
 		a.prev {
