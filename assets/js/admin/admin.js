@@ -1,4 +1,4 @@
-/* global ajaxurl, storefrontNUX */
+/* global ajaxurl, restroomNUX */
 ( function ( wp, $ ) {
 	'use strict';
 
@@ -7,15 +7,15 @@
 	}
 
 	/*
-	 * Ajax request that will hide the Storefront NUX admin notice or message.
+	 * Ajax request that will hide the Restroom NUX admin notice or message.
 	 */
 	function dismissNux() {
 		$.ajax( {
 			type: 'POST',
 			url: ajaxurl,
 			data: {
-				nonce: storefrontNUX.nonce,
-				action: 'storefront_dismiss_notice',
+				nonce: restroomNUX.nonce,
+				action: 'restroom_dismiss_notice',
 			},
 			dataType: 'json',
 		} );
@@ -34,8 +34,8 @@
 		// Dismiss notice inside theme page.
 		$( document ).on( 'click', '.sf-nux-dismiss-button', function () {
 			dismissNux();
-			$( '.storefront-intro-setup' ).hide();
-			$( '.storefront-intro-message' ).fadeIn( 'slow' );
+			$( '.restroom-intro-setup' ).hide();
+			$( '.restroom-intro-message' ).fadeIn( 'slow' );
 		} );
 	} );
 } )( window.wp, jQuery );

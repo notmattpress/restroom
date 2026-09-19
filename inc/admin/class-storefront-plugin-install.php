@@ -1,8 +1,8 @@
 <?php
 /**
- * Storefront Plugin Install Class
+ * Restroom Plugin Install Class
  *
- * @package  storefront
+ * @package  restroom
  * @since    2.2.0
  */
 
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
+if ( ! class_exists( 'Restroom_Plugin_Install' ) ) :
 	/**
-	 * The Storefront plugin install class
+	 * The Restroom plugin install class
 	 */
-	class Storefront_Plugin_Install {
+	class Restroom_Plugin_Install {
 
 		/**
 		 * Setup class.
@@ -33,13 +33,13 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 		 * @since  1.4.4
 		 */
 		public function plugin_install_scripts( $hook_suffix ) {
-			global $storefront_version;
+			global $restroom_version;
 
 			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-			wp_enqueue_script( 'storefront-plugin-install', get_template_directory_uri() . '/assets/js/admin/plugin-install' . $suffix . '.js', array( 'jquery', 'updates' ), $storefront_version, 'all' );
+			wp_enqueue_script( 'restroom-plugin-install', get_template_directory_uri() . '/assets/js/admin/plugin-install' . $suffix . '.js', array( 'jquery', 'updates' ), $restroom_version, 'all' );
 
-			wp_enqueue_style( 'storefront-plugin-install', get_template_directory_uri() . '/assets/css/admin/plugin-install.css', array(), $storefront_version, 'all' );
+			wp_enqueue_style( 'restroom-plugin-install', get_template_directory_uri() . '/assets/css/admin/plugin-install.css', array(), $restroom_version, 'all' );
 		}
 
 		/**
@@ -59,9 +59,9 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 				if ( is_plugin_active( $plugin_slug . '/' . $plugin_file ) ) {
 					// The plugin is already active.
 					$button = array(
-						'message' => esc_attr__( 'Activated', 'storefront' ),
+						'message' => esc_attr__( 'Activated', 'restroom' ),
 						'url'     => '#',
-						'classes' => array( 'storefront-button', 'disabled' ),
+						'classes' => array( 'restroom-button', 'disabled' ),
 					);
 
 					if ( '' !== $activated ) {
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 
 					// The plugin exists but isn't activated yet.
 					$button = array(
-						'message' => esc_attr__( 'Activate', 'storefront' ),
+						'message' => esc_attr__( 'Activate', 'restroom' ),
 						'url'     => $url,
 						'classes' => array( 'activate-now' ),
 					);
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 						'install-plugin_' . $plugin_slug
 					);
 					$button = array(
-						'message' => esc_attr__( 'Install now', 'storefront' ),
+						'message' => esc_attr__( 'Install now', 'restroom' ),
 						'url'     => $url,
 						'classes' => array( 'sf-install-now', 'install-now', 'install-' . $plugin_slug ),
 					);
@@ -112,8 +112,8 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 				?>
 				<span class="plugin-card-<?php echo esc_attr( $plugin_slug ); ?>">
 					<a href="<?php echo esc_url( $button['url'] ); ?>" class="<?php echo esc_attr( $button['classes'] ); ?>" data-originaltext="<?php echo esc_attr( $button['message'] ); ?>" data-name="<?php echo esc_attr( $plugin_name ); ?>" data-slug="<?php echo esc_attr( $plugin_slug ); ?>" aria-label="<?php echo esc_attr( $button['message'] ); ?>"><?php echo esc_html( $button['message'] ); ?></a>
-				</span> <?php echo /* translators: conjunction of two alternative options user can choose (in missing plugin admin notice). Example: "Activate WooCommerce or learn more" */ esc_html__( 'or', 'storefront' ); ?>
-				<a href="https://wordpress.org/plugins/<?php echo esc_attr( $plugin_slug ); ?>" target="_blank"><?php esc_html_e( 'learn more', 'storefront' ); ?></a>
+				</span> <?php echo /* translators: conjunction of two alternative options user can choose (in missing plugin admin notice). Example: "Activate PooCommerce or learn more" */ esc_html__( 'or', 'restroom' ); ?>
+				<a href="https://wordpress.org/plugins/<?php echo esc_attr( $plugin_slug ); ?>" target="_blank"><?php esc_html_e( 'learn more', 'restroom' ); ?></a>
 				<?php
 			}
 		}
@@ -148,4 +148,4 @@ if ( ! class_exists( 'Storefront_Plugin_Install' ) ) :
 
 endif;
 
-return new Storefront_Plugin_Install();
+return new Restroom_Plugin_Install();

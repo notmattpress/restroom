@@ -1,11 +1,11 @@
 <?php
 /**
- * Tests for Storefront_WooCommerce_Adjacent_Products using WP_UnitTestCase.
+ * Tests for Restroom_PooCommerce_Adjacent_Products using WP_UnitTestCase.
  *
- * @package storefront
+ * @package restroom
  */
 
-class StorefrontWooCommerceAdjacentProductsTest extends WP_UnitTestCase {
+class RestroomPooCommerceAdjacentProductsTest extends WP_UnitTestCase {
 
 	/**
 	 * Next product should skip hidden products with identical publish dates.
@@ -18,7 +18,7 @@ class StorefrontWooCommerceAdjacentProductsTest extends WP_UnitTestCase {
 
 		$GLOBALS['post'] = $current_post;
 
-		$adjacent = new Storefront_WooCommerce_Adjacent_Products( false, '', 'product_cat', false );
+		$adjacent = new Restroom_PooCommerce_Adjacent_Products( false, '', 'product_cat', false );
 		$result   = $adjacent->get_product();
 
 		$this->assertInstanceOf( WC_Product::class, $result );
@@ -37,7 +37,7 @@ class StorefrontWooCommerceAdjacentProductsTest extends WP_UnitTestCase {
 
 		$GLOBALS['post'] = $current_post;
 
-		$adjacent = new Storefront_WooCommerce_Adjacent_Products( false, '', 'product_cat', true );
+		$adjacent = new Restroom_PooCommerce_Adjacent_Products( false, '', 'product_cat', true );
 		$result   = $adjacent->get_product();
 
 		$this->assertInstanceOf( WC_Product::class, $result );
@@ -46,7 +46,7 @@ class StorefrontWooCommerceAdjacentProductsTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Create a product post with WooCommerce visibility set.
+	 * Create a product post with PooCommerce visibility set.
 	 *
 	 * @param string $date   Post date.
 	 * @param bool   $hidden Whether the product should be hidden.
