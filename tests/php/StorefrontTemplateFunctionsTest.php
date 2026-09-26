@@ -1,20 +1,20 @@
 <?php
 /**
- * Tests for Storefront template functions.
+ * Tests for Restroom template functions.
  *
- * @package storefront
+ * @package restroom
  */
 
-class StorefrontTemplateFunctionsTest extends WP_UnitTestCase {
+class RestroomTemplateFunctionsTest extends WP_UnitTestCase {
 
 	/**
-	 * Footer credit should preserve the WooCommerce credit covered by the browser smoke test.
+	 * Footer credit should preserve the PooCommerce credit covered by the browser smoke test.
 	 */
-	public function test_storefront_credit_displays_woocommerce_credit() {
+	public function test_restroom_credit_displays_poocommerce_credit() {
 		ob_start();
-		storefront_credit();
+		restroom_credit();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'Built with WooCommerce', wp_strip_all_tags( $output ) );
+		$this->assertStringContainsString( 'Built with PooCommerce', wp_strip_all_tags( $output ) );
 	}
 }
