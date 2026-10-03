@@ -218,7 +218,7 @@ input[type="submit"],
 	}
 }
 
-.storefront-handheld-footer-bar {
+.restroom-handheld-footer-bar {
 
 	ul {
 
@@ -267,7 +267,7 @@ input[type="submit"],
 	}
 }
 
-.storefront-product-pagination {
+.restroom-product-pagination {
 
 	a {
 
@@ -306,9 +306,9 @@ input[type="submit"],
 
 	div.product {
 
-		.woocommerce-product-gallery {
+		.poocommerce-product-gallery {
 
-			.woocommerce-product-gallery__trigger {
+			.poocommerce-product-gallery__trigger {
 				text-indent: -999px;
 				overflow: hidden;
 
@@ -362,7 +362,7 @@ a.reset_variations {
 	}
 }
 
-.woocommerce-breadcrumb {
+.poocommerce-breadcrumb {
 
 	a {
 
@@ -580,7 +580,7 @@ a.remove {
 	}
 }
 
-.woocommerce-shipping-calculator {
+.poocommerce-shipping-calculator {
 
 	> p:first-child {
 
@@ -626,7 +626,7 @@ a.remove {
 	}
 }
 
-.woocommerce-pagination {
+.poocommerce-pagination {
 
 	.next,
 	.prev {
@@ -654,7 +654,7 @@ a.remove {
 	}
 }
 
-.woocommerce-breadcrumb {
+.poocommerce-breadcrumb {
 
 	.breadcrumb-separator {
 		text-indent: -9999px;
@@ -686,7 +686,7 @@ a.remove {
 
 	.payment_methods {
 
-		> .woocommerce-PaymentMethod,
+		> .poocommerce-PaymentMethod,
 		> .wc_payment_method {
 
 			> label {
@@ -703,7 +703,7 @@ a.remove {
 
 		li {
 
-			&.woocommerce-PaymentMethod,
+			&.poocommerce-PaymentMethod,
 			&.wc_payment_method {
 
 				> input[type="radio"]:first-child {
@@ -719,7 +719,7 @@ a.remove {
 	}
 }
 
-.woocommerce-password-strength {
+.poocommerce-password-strength {
 
 	&::after {
 
@@ -743,7 +743,7 @@ a.remove {
 	}
 }
 
-.woocommerce-MyAccount-navigation {
+.poocommerce-MyAccount-navigation {
 
 	ul {
 
@@ -778,35 +778,35 @@ a.remove {
 				}
 			}
 
-			&.woocommerce-MyAccount-navigation-link--dashboard a::before {
+			&.poocommerce-MyAccount-navigation-link--dashboard a::before {
 				content: fa-content($fa-var-tachometer-alt);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--orders a::before {
+			&.poocommerce-MyAccount-navigation-link--orders a::before {
 				content: fa-content($fa-var-shopping-basket);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--downloads a::before {
+			&.poocommerce-MyAccount-navigation-link--downloads a::before {
 				content: fa-content($fa-var-file-archive);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--edit-address a::before {
+			&.poocommerce-MyAccount-navigation-link--edit-address a::before {
 				content: fa-content($fa-var-home);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--payment-methods a::before {
+			&.poocommerce-MyAccount-navigation-link--payment-methods a::before {
 				content: fa-content($fa-var-credit-card);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--edit-account a::before {
+			&.poocommerce-MyAccount-navigation-link--edit-account a::before {
 				content: fa-content($fa-var-user);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--customer-logout a::before {
+			&.poocommerce-MyAccount-navigation-link--customer-logout a::before {
 				content: fa-content($fa-var-sign-out-alt);
 			}
 
-			&.woocommerce-MyAccount-navigation-link--subscriptions a::before {
+			&.poocommerce-MyAccount-navigation-link--subscriptions a::before {
 				content: fa-content($fa-var-sync);
 			}
 		}
@@ -839,7 +839,7 @@ p.order-again {
 	}
 }
 
-.woocommerce-MyAccount-downloads {
+.poocommerce-MyAccount-downloads {
 
 	.button {
 
@@ -862,7 +862,7 @@ p.order-again {
 	}
 }
 
-.woocommerce-tabs {
+.poocommerce-tabs {
 
 	ul.tabs {
 
@@ -893,7 +893,7 @@ p.order-again {
 }
 
 .wc-forward,
-.woocommerce-Button--next {
+.poocommerce-Button--next {
 
 	&::after {
 
@@ -903,7 +903,7 @@ p.order-again {
 	}
 }
 
-.woocommerce-Button--previous {
+.poocommerce-Button--previous {
 
 	&::before {
 
@@ -1003,7 +1003,7 @@ p.order-again {
 /**
  * Ship multiple addresses
  */
-.woocommerce-page {
+.poocommerce-page {
 
 	.ship_address,
 	.no_shipping_address {
@@ -1049,12 +1049,12 @@ p.order-again {
 /**
  * Product reviews pro
  */
-.woocommerce,
-.woocommerce-page {
+.poocommerce,
+.poocommerce-page {
 
-	.woocommerce-MyAccount-navigation {
+	.poocommerce-MyAccount-navigation {
 
-		li.woocommerce-MyAccount-navigation-link--contributions {
+		li.poocommerce-MyAccount-navigation-link--contributions {
 
 			a::before {
 
@@ -1159,7 +1159,7 @@ a#variations_clear {
 
 		a {
 
-			&.woocommerce-store-notice__dismiss-link {
+			&.poocommerce-store-notice__dismiss-link {
 
 				&::before {
 
@@ -1216,7 +1216,7 @@ a#variations_clear {
 		}
 	}
 
-	.woocommerce-tabs {
+	.poocommerce-tabs {
 
 		ul.tabs {
 

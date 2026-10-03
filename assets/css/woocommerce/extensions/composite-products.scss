@@ -1,5 +1,5 @@
 /**
- * WooCommerce Composite Products
+ * PooCommerce Composite Products
  */
 
 /**
@@ -111,8 +111,8 @@
 	}
 }
 
-.woocommerce,
-.woocommerce-page {
+.poocommerce,
+.poocommerce-page {
 
 	#content div.product,
 	div.product {
@@ -164,7 +164,7 @@ table.shop_table_responsive tr.component_table_item {
 	}
 
 	.sp-product-gallery-stacked,
-	.storefront-full-width-content,
+	.restroom-full-width-content,
 	.page-template-template-fullwidth-php {
 
 		#content div.product,
@@ -198,8 +198,8 @@ table.shop_table_responsive tr.component_table_item {
 
 @include susy-media(max-width $handheld) {
 
-	.woocommerce,
-	.woocommerce-page {
+	.poocommerce,
+	.poocommerce-page {
 
 		#content div.product,
 		div.product {
