@@ -1,4 +1,4 @@
-/* global storefrontScreenReaderText */
+/* global restroomScreenReaderText */
 
 /**
  * navigation.js
@@ -60,7 +60,7 @@
 					btnSpan.classList.add( 'screen-reader-text' );
 					btnSpan.appendChild(
 						document.createTextNode(
-							storefrontScreenReaderText.expand
+							restroomScreenReaderText.expand
 						)
 					);
 
@@ -94,8 +94,8 @@
 						btnSpan.appendChild(
 							document.createTextNode(
 								expanded
-									? storefrontScreenReaderText.collapse
-									: storefrontScreenReaderText.expand
+									? restroomScreenReaderText.collapse
+									: restroomScreenReaderText.expand
 							)
 						);
 						btn.nextElementSibling.classList.toggle( 'toggled-on' );

@@ -137,12 +137,12 @@
 			$( 'body' )
 				.addClass( 'sf-exiting' )
 				.on(
-					'animationend.storefront webkitAnimationEnd.storefront',
+					'animationend.restroom webkitAnimationEnd.restroom',
 					function () {
 						$( this )
 							.removeClass( 'sf-exiting' )
 							.off(
-								'animationend.storefront webkitAnimationEnd.storefront'
+								'animationend.restroom webkitAnimationEnd.restroom'
 							)
 							.addClass( 'sf-hidden' );
 						self.$container.hide();
@@ -170,12 +170,12 @@
 			$( 'body' )
 				.addClass( 'sf-entering' )
 				.on(
-					'animationend.storefront webkitAnimationEnd.storefront',
+					'animationend.restroom webkitAnimationEnd.restroom',
 					function () {
 						$( this )
 							.removeClass( 'sf-entering' )
 							.off(
-								'animationend.storefront webkitAnimationEnd.storefront'
+								'animationend.restroom webkitAnimationEnd.restroom'
 							);
 
 						self.$container.css( {
@@ -251,9 +251,9 @@
 				.css( {
 					transform: 'translateY(' + position + 'px)',
 				} )
-				.on( 'transitionend.storefront', function () {
+				.on( 'transitionend.restroom', function () {
 					self.$container.removeClass( 'sf-moving' );
-					self.$container.off( 'transitionend.storefront' );
+					self.$container.off( 'transitionend.restroom' );
 				} );
 		},
 

@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in template-homepage.php
  *
- * @package storefront
+ * @package restroom
  */
 
 ?>
@@ -10,16 +10,16 @@
 $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="<?php storefront_homepage_content_styles(); ?>" data-featured-image="<?php echo esc_url( $featured_image ); ?>">
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="<?php restroom_homepage_content_styles(); ?>" data-featured-image="<?php echo esc_url( $featured_image ); ?>">
 	<div class="col-full">
 		<?php
 		/**
-		 * Functions hooked in to storefront_page add_action
+		 * Functions hooked in to restroom_page add_action
 		 *
-		 * @hooked storefront_homepage_header      - 10
-		 * @hooked storefront_page_content         - 20
+		 * @hooked restroom_homepage_header      - 10
+		 * @hooked restroom_page_content         - 20
 		 */
-		do_action( 'storefront_homepage' );
+		do_action( 'restroom_homepage' );
 		?>
 	</div>
 </div><!-- #post-## -->
