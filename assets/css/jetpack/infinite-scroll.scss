@@ -5,9 +5,9 @@
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
 .pagination,
-.woocommerce-pagination,
-ul.products + .storefront-sorting,
-.woocommerce-result-count,
+.poocommerce-pagination,
+ul.products + .restroom-sorting,
+.poocommerce-result-count,
 .infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
 	display: none;
 }
