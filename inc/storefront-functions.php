@@ -1,16 +1,16 @@
 <?php
 /**
- * Storefront functions.
+ * Restroom functions.
  *
- * @package storefront
+ * @package restroom
  */
 
-if ( ! function_exists( 'storefront_is_woocommerce_activated' ) ) {
+if ( ! function_exists( 'restroom_is_poocommerce_activated' ) ) {
 	/**
-	 * Query WooCommerce activation
+	 * Query PooCommerce activation
 	 */
-	function storefront_is_woocommerce_activated() {
-		return class_exists( 'WooCommerce' ) ? true : false;
+	function restroom_is_poocommerce_activated() {
+		return class_exists( 'PooCommerce' ) ? true : false;
 	}
 }
 
@@ -25,7 +25,7 @@ if ( ! function_exists( 'storefront_is_woocommerce_activated' ) ) {
  *
  * @return string|bool False on failure, the result of the shortcode on success.
  */
-function storefront_do_shortcode( $tag, array $atts = array(), $content = null ) {
+function restroom_do_shortcode( $tag, array $atts = array(), $content = null ) {
 	global $shortcode_tags;
 
 	if ( ! isset( $shortcode_tags[ $tag ] ) ) {
@@ -37,25 +37,25 @@ function storefront_do_shortcode( $tag, array $atts = array(), $content = null )
 
 /**
  * Get the content background color
- * Accounts for the Storefront Designer and Storefront Powerpack content background option.
+ * Accounts for the Restroom Designer and Restroom Powerpack content background option.
  *
  * @since  1.6.0
  * @return string the background color
  */
-function storefront_get_content_background_color() {
-	if ( class_exists( 'Storefront_Designer' ) ) {
+function restroom_get_content_background_color() {
+	if ( class_exists( 'Restroom_Designer' ) ) {
 		$content_bg_color = get_theme_mod( 'sd_content_background_color' );
 		$content_frame    = get_theme_mod( 'sd_fixed_width' );
 	}
 
-	if ( class_exists( 'Storefront_Powerpack' ) ) {
+	if ( class_exists( 'Restroom_Powerpack' ) ) {
 		$content_bg_color = get_theme_mod( 'sp_content_frame_background' );
 		$content_frame    = get_theme_mod( 'sp_content_frame' );
 	}
 
 	$bg_color = str_replace( '#', '', get_theme_mod( 'background_color' ) );
 
-	if ( class_exists( 'Storefront_Powerpack' ) || class_exists( 'Storefront_Designer' ) ) {
+	if ( class_exists( 'Restroom_Powerpack' ) || class_exists( 'Restroom_Designer' ) ) {
 		if ( $content_bg_color && ( 'true' === $content_frame || 'frame' === $content_frame ) ) {
 			$bg_color = str_replace( '#', '', $content_bg_color );
 		}
@@ -65,12 +65,12 @@ function storefront_get_content_background_color() {
 }
 
 /**
- * Apply inline style to the Storefront header.
+ * Apply inline style to the Restroom header.
  *
  * @uses  get_header_image()
  * @since  2.0.0
  */
-function storefront_header_styles() {
+function restroom_header_styles() {
 	$is_header_image = get_header_image();
 	$header_bg_image = '';
 
@@ -84,7 +84,7 @@ function storefront_header_styles() {
 		$styles['background-image'] = $header_bg_image;
 	}
 
-	$styles = apply_filters( 'storefront_header_styles', $styles );
+	$styles = apply_filters( 'restroom_header_styles', $styles );
 
 	foreach ( $styles as $style => $value ) {
 		echo esc_attr( $style . ': ' . $value . '; ' );
@@ -92,12 +92,12 @@ function storefront_header_styles() {
 }
 
 /**
- * Apply inline style to the Storefront homepage content.
+ * Apply inline style to the Restroom homepage content.
  *
  * @uses  get_the_post_thumbnail_url()
  * @since  2.2.0
  */
-function storefront_homepage_content_styles() {
+function restroom_homepage_content_styles() {
 	$featured_image   = get_the_post_thumbnail_url( get_the_ID() );
 	$background_image = '';
 
@@ -111,7 +111,7 @@ function storefront_homepage_content_styles() {
 		$styles['background-image'] = $background_image;
 	}
 
-	$styles = apply_filters( 'storefront_homepage_content_styles', $styles );
+	$styles = apply_filters( 'restroom_homepage_content_styles', $styles );
 
 	foreach ( $styles as $style => $value ) {
 		echo esc_attr( $style . ': ' . $value . '; ' );
@@ -170,7 +170,7 @@ function is_color_light( $hex ) {
  * @return string           Brightened/darkened color (hex by default, rgba if opacity is set to a valid value below 1).
  * @since  1.0.0
  */
-function storefront_adjust_color_brightness( $hex, $steps, $opacity = 1 ) {
+function restroom_adjust_color_brightness( $hex, $steps, $opacity = 1 ) {
 	// Steps should be between -255 and 255. Negative = darker, positive = lighter.
 	$steps = max( -255, min( 255, $steps ) );
 
@@ -200,7 +200,7 @@ function storefront_adjust_color_brightness( $hex, $steps, $opacity = 1 ) {
  * @param array $setting the setting object.
  * @since  1.3.0
  */
-function storefront_sanitize_choices( $input, $setting ) {
+function restroom_sanitize_choices( $input, $setting ) {
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
 
@@ -221,6 +221,6 @@ function storefront_sanitize_choices( $input, $setting ) {
  * @return bool Whether the checkbox is checked.
  * @since  1.5.0
  */
-function storefront_sanitize_checkbox( $checked ) {
+function restroom_sanitize_checkbox( $checked ) {
 	return ( ( isset( $checked ) && true === $checked ) ? true : false );
 }

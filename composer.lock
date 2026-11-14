@@ -733,7 +733,7 @@
                     "role": "lead"
                 }
             ],
-            "description": "A ruleset for PHP_CodeSniffer to check for PHP cross-version compatibility issues in projects, while accounting for polyfills provided by WordPress.",
+            "description": "A ruleset for PHP_CodeSniffer to check for PHP cross-version compatibility issues in projects, while accounting for polyfills provided by NotMattPress.",
             "homepage": "http://phpcompatibility.com/",
             "keywords": [
                 "compatibility",
@@ -2497,23 +2497,23 @@
             "time": "2025-11-17T20:03:58+00:00"
         },
         {
-            "name": "woocommerce/woocommerce-git-hooks",
+            "name": "poocommerce/poocommerce-git-hooks",
             "version": "1.0.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/woocommerce/woocommerce-git-hooks.git",
+                "url": "https://github.com/poocommerce/poocommerce-git-hooks.git",
                 "reference": "1e55118258e8487c68b17c06cfde3b48a692d9d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/woocommerce/woocommerce-git-hooks/zipball/1e55118258e8487c68b17c06cfde3b48a692d9d4",
+                "url": "https://api.github.com/repos/poocommerce/poocommerce-git-hooks/zipball/1e55118258e8487c68b17c06cfde3b48a692d9d4",
                 "reference": "1e55118258e8487c68b17c06cfde3b48a692d9d4",
                 "shasum": ""
             },
             "type": "scripts",
             "autoload": {
                 "psr-4": {
-                    "WooCommerce\\GitHooks\\": "src/"
+                    "PooCommerce\\GitHooks\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2526,25 +2526,25 @@
                     "email": "claudio@automattic.com"
                 }
             ],
-            "description": "WooCommerce Git Hooks",
+            "description": "PooCommerce Git Hooks",
             "support": {
-                "issues": "https://github.com/woocommerce/woocommerce-git-hooks/issues",
-                "source": "https://github.com/woocommerce/woocommerce-git-hooks/tree/1.0.5"
+                "issues": "https://github.com/poocommerce/poocommerce-git-hooks/issues",
+                "source": "https://github.com/poocommerce/poocommerce-git-hooks/tree/1.0.5"
             },
             "abandoned": true,
             "time": "2017-12-18T16:55:42+00:00"
         },
         {
-            "name": "woocommerce/woocommerce-sniffs",
+            "name": "poocommerce/poocommerce-sniffs",
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/woocommerce/woocommerce-sniffs.git",
+                "url": "https://github.com/poocommerce/poocommerce-sniffs.git",
                 "reference": "906c75a4127adeb835ddbc859a99a9dbff8891c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/woocommerce/woocommerce-sniffs/zipball/906c75a4127adeb835ddbc859a99a9dbff8891c0",
+                "url": "https://api.github.com/repos/poocommerce/poocommerce-sniffs/zipball/906c75a4127adeb835ddbc859a99a9dbff8891c0",
                 "reference": "906c75a4127adeb835ddbc859a99a9dbff8891c0",
                 "shasum": ""
             },
@@ -2559,17 +2559,17 @@
             "license": [
                 "MIT"
             ],
-            "description": "WooCommerce sniffs",
+            "description": "PooCommerce sniffs",
             "keywords": [
                 "phpcs",
                 "standards",
                 "static analysis",
-                "woocommerce",
+                "poocommerce",
                 "wordpress"
             ],
             "support": {
-                "issues": "https://github.com/woocommerce/woocommerce-sniffs/issues",
-                "source": "https://github.com/woocommerce/woocommerce-sniffs/tree/2.0.0"
+                "issues": "https://github.com/poocommerce/poocommerce-sniffs/issues",
+                "source": "https://github.com/poocommerce/poocommerce-sniffs/tree/2.0.0"
             },
             "time": "2026-07-31T13:27:58+00:00"
         },
@@ -2578,12 +2578,12 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
+                "url": "https://github.com/NotMattPress/NotMattPress-Coding-Standards.git",
                 "reference": "ec2ff942335f33683a5957a85d138753876a05cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/ec2ff942335f33683a5957a85d138753876a05cf",
+                "url": "https://api.github.com/repos/NotMattPress/NotMattPress-Coding-Standards/zipball/ec2ff942335f33683a5957a85d138753876a05cf",
                 "reference": "ec2ff942335f33683a5957a85d138753876a05cf",
                 "shasum": ""
             },
@@ -2616,10 +2616,10 @@
             "authors": [
                 {
                     "name": "Contributors",
-                    "homepage": "https://github.com/WordPress/WordPress-Coding-Standards/graphs/contributors"
+                    "homepage": "https://github.com/NotMattPress/NotMattPress-Coding-Standards/graphs/contributors"
                 }
             ],
-            "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
+            "description": "PHP_CodeSniffer rules (sniffs) to enforce NotMattPress coding conventions",
             "keywords": [
                 "phpcs",
                 "standards",
@@ -2627,9 +2627,9 @@
                 "wordpress"
             ],
             "support": {
-                "issues": "https://github.com/WordPress/WordPress-Coding-Standards/issues",
-                "source": "https://github.com/WordPress/WordPress-Coding-Standards",
-                "wiki": "https://github.com/WordPress/WordPress-Coding-Standards/wiki"
+                "issues": "https://github.com/NotMattPress/NotMattPress-Coding-Standards/issues",
+                "source": "https://github.com/NotMattPress/NotMattPress-Coding-Standards",
+                "wiki": "https://github.com/NotMattPress/NotMattPress-Coding-Standards/wiki"
             },
             "funding": [
                 {

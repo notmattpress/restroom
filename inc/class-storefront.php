@@ -1,21 +1,21 @@
 <?php
 /**
- * Storefront Class
+ * Restroom Class
  *
  * @since    2.0.0
- * @package  storefront
+ * @package  restroom
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Storefront' ) ) :
+if ( ! class_exists( 'Restroom' ) ) :
 
 	/**
-	 * The main Storefront class
+	 * The main Restroom class
 	 */
-	class Storefront {
+	class Restroom {
 
 		/**
 		 * Setup class.
@@ -26,7 +26,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ), 10 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 30 ); // After WooCommerce.
+			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 30 ); // After PooCommerce.
 			add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_filter( 'wp_page_menu_args', array( $this, 'page_menu_args' ) );
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 		}
 
 		/**
-		 * Sets up theme defaults and registers support for various WordPress features.
+		 * Sets up theme defaults and registers support for various NotMattPress features.
 		 *
 		 * Note that this function is hooked into the after_setup_theme hook, which
 		 * runs before the init hook. The init hook is too late for some features, such
@@ -48,14 +48,14 @@ if ( ! class_exists( 'Storefront' ) ) :
 			 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 			 */
 
-			// Loads wp-content/languages/themes/storefront-it_IT.mo.
-			load_theme_textdomain( 'storefront', trailingslashit( WP_LANG_DIR ) . 'themes' );
+			// Loads wp-content/languages/themes/restroom-it_IT.mo.
+			load_theme_textdomain( 'restroom', trailingslashit( WP_LANG_DIR ) . 'themes' );
 
 			// Loads wp-content/themes/child-theme-name/languages/it_IT.mo.
-			load_theme_textdomain( 'storefront', get_stylesheet_directory() . '/languages' );
+			load_theme_textdomain( 'restroom', get_stylesheet_directory() . '/languages' );
 
-			// Loads wp-content/themes/storefront/languages/it_IT.mo.
-			load_theme_textdomain( 'storefront', get_template_directory() . '/languages' );
+			// Loads wp-content/themes/restroom/languages/it_IT.mo.
+			load_theme_textdomain( 'restroom', get_template_directory() . '/languages' );
 
 			/**
 			 * Add default posts and comments RSS feed links to head.
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 			add_theme_support(
 				'custom-logo',
 				apply_filters(
-					'storefront_custom_logo_args',
+					'restroom_custom_logo_args',
 					array(
 						'height'      => 110,
 						'width'       => 470,
@@ -90,11 +90,11 @@ if ( ! class_exists( 'Storefront' ) ) :
 			 */
 			register_nav_menus(
 				apply_filters(
-					'storefront_register_nav_menus',
+					'restroom_register_nav_menus',
 					array(
-						'primary'   => __( 'Primary Menu', 'storefront' ),
-						'secondary' => __( 'Secondary Menu', 'storefront' ),
-						'handheld'  => __( 'Handheld Menu', 'storefront' ),
+						'primary'   => __( 'Primary Menu', 'restroom' ),
+						'secondary' => __( 'Secondary Menu', 'restroom' ),
+						'handheld'  => __( 'Handheld Menu', 'restroom' ),
 					)
 				)
 			);
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 			add_theme_support(
 				'html5',
 				apply_filters(
-					'storefront_html5_args',
+					'restroom_html5_args',
 					array(
 						'search-form',
 						'comment-form',
@@ -121,26 +121,26 @@ if ( ! class_exists( 'Storefront' ) ) :
 			);
 
 			/**
-			 * Setup the WordPress core custom background feature.
+			 * Setup the NotMattPress core custom background feature.
 			 */
 			add_theme_support(
 				'custom-background',
 				apply_filters(
-					'storefront_custom_background_args',
+					'restroom_custom_background_args',
 					array(
-						'default-color' => apply_filters( 'storefront_default_background_color', 'ffffff' ),
+						'default-color' => apply_filters( 'restroom_default_background_color', 'ffffff' ),
 						'default-image' => '',
 					)
 				)
 			);
 
 			/**
-			 * Setup the WordPress core custom header feature.
+			 * Setup the NotMattPress core custom header feature.
 			 */
 			add_theme_support(
 				'custom-header',
 				apply_filters(
-					'storefront_custom_header_args',
+					'restroom_custom_header_args',
 					array(
 						'default-image' => '',
 						'header-text'   => false,
@@ -184,27 +184,27 @@ if ( ! class_exists( 'Storefront' ) ) :
 				'editor-font-sizes',
 				array(
 					array(
-						'name' => __( 'Small', 'storefront' ),
+						'name' => __( 'Small', 'restroom' ),
 						'size' => 14,
 						'slug' => 'small',
 					),
 					array(
-						'name' => __( 'Normal', 'storefront' ),
+						'name' => __( 'Normal', 'restroom' ),
 						'size' => 16,
 						'slug' => 'normal',
 					),
 					array(
-						'name' => __( 'Medium', 'storefront' ),
+						'name' => __( 'Medium', 'restroom' ),
 						'size' => 23,
 						'slug' => 'medium',
 					),
 					array(
-						'name' => __( 'Large', 'storefront' ),
+						'name' => __( 'Large', 'restroom' ),
 						'size' => 26,
 						'slug' => 'large',
 					),
 					array(
-						'name' => __( 'Huge', 'storefront' ),
+						'name' => __( 'Huge', 'restroom' ),
 						'size' => 37,
 						'slug' => 'huge',
 					),
@@ -248,19 +248,19 @@ if ( ! class_exists( 'Storefront' ) ) :
 		 */
 		public function widgets_init() {
 			$sidebar_args['sidebar'] = array(
-				'name'        => __( 'Sidebar', 'storefront' ),
+				'name'        => __( 'Sidebar', 'restroom' ),
 				'id'          => 'sidebar-1',
 				'description' => '',
 			);
 
 			$sidebar_args['header'] = array(
-				'name'        => __( 'Below Header', 'storefront' ),
+				'name'        => __( 'Below Header', 'restroom' ),
 				'id'          => 'header-1',
-				'description' => __( 'Widgets added to this region will appear beneath the header and above the main content.', 'storefront' ),
+				'description' => __( 'Widgets added to this region will appear beneath the header and above the main content.', 'restroom' ),
 			);
 
-			$rows    = intval( apply_filters( 'storefront_footer_widget_rows', 1 ) );
-			$regions = intval( apply_filters( 'storefront_footer_widget_columns', 4 ) );
+			$rows    = intval( apply_filters( 'restroom_footer_widget_rows', 1 ) );
+			$regions = intval( apply_filters( 'restroom_footer_widget_columns', 4 ) );
 
 			for ( $row = 1; $row <= $rows; $row++ ) {
 				for ( $region = 1; $region <= $regions; $region++ ) {
@@ -269,16 +269,16 @@ if ( ! class_exists( 'Storefront' ) ) :
 
 					if ( 1 === $rows ) {
 						/* translators: 1: column number */
-						$footer_region_name = sprintf( __( 'Footer Column %1$d', 'storefront' ), $region );
+						$footer_region_name = sprintf( __( 'Footer Column %1$d', 'restroom' ), $region );
 
 						/* translators: 1: column number */
-						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of the footer.', 'storefront' ), $region );
+						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of the footer.', 'restroom' ), $region );
 					} else {
 						/* translators: 1: row number, 2: column number */
-						$footer_region_name = sprintf( __( 'Footer Row %1$d - Column %2$d', 'storefront' ), $row, $region );
+						$footer_region_name = sprintf( __( 'Footer Row %1$d - Column %2$d', 'restroom' ), $row, $region );
 
 						/* translators: 1: column number, 2: row number */
-						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of footer row %2$d.', 'storefront' ), $region, $row );
+						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of footer row %2$d.', 'restroom' ), $region, $row );
 					}
 
 					$sidebar_args[ $footer ] = array(
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 				}
 			}
 
-			$sidebar_args = apply_filters( 'storefront_sidebar_args', $sidebar_args );
+			$sidebar_args = apply_filters( 'restroom_sidebar_args', $sidebar_args );
 
 			foreach ( $sidebar_args as $sidebar => $args ) {
 				$widget_tags = array(
@@ -302,15 +302,15 @@ if ( ! class_exists( 'Storefront' ) ) :
 				/**
 				 * Dynamically generated filter hooks. Allow changing widget wrapper and title tags. See the list below.
 				 *
-				 * 'storefront_header_widget_tags'
-				 * 'storefront_sidebar_widget_tags'
+				 * 'restroom_header_widget_tags'
+				 * 'restroom_sidebar_widget_tags'
 				 *
-				 * 'storefront_footer_1_widget_tags'
-				 * 'storefront_footer_2_widget_tags'
-				 * 'storefront_footer_3_widget_tags'
-				 * 'storefront_footer_4_widget_tags'
+				 * 'restroom_footer_1_widget_tags'
+				 * 'restroom_footer_2_widget_tags'
+				 * 'restroom_footer_3_widget_tags'
+				 * 'restroom_footer_4_widget_tags'
 				 */
-				$filter_hook = sprintf( 'storefront_%s_widget_tags', $sidebar );
+				$filter_hook = sprintf( 'restroom_%s_widget_tags', $sidebar );
 				$widget_tags = apply_filters( $filter_hook, $widget_tags );
 
 				if ( is_array( $widget_tags ) ) {
@@ -325,21 +325,21 @@ if ( ! class_exists( 'Storefront' ) ) :
 		 * @since  1.0.0
 		 */
 		public function scripts() {
-			global $storefront_version;
+			global $restroom_version;
 
 			/**
 			 * Styles
 			 */
-			wp_enqueue_style( 'storefront-style', get_template_directory_uri() . '/style.css', '', $storefront_version );
-			wp_style_add_data( 'storefront-style', 'rtl', 'replace' );
+			wp_enqueue_style( 'restroom-style', get_template_directory_uri() . '/style.css', '', $restroom_version );
+			wp_style_add_data( 'restroom-style', 'rtl', 'replace' );
 
-			wp_enqueue_style( 'storefront-icons', get_template_directory_uri() . '/assets/css/base/icons.css', '', $storefront_version );
-			wp_style_add_data( 'storefront-icons', 'rtl', 'replace' );
+			wp_enqueue_style( 'restroom-icons', get_template_directory_uri() . '/assets/css/base/icons.css', '', $restroom_version );
+			wp_style_add_data( 'restroom-icons', 'rtl', 'replace' );
 
 			/**
 			 * Fonts
 			 */
-			wp_enqueue_style( 'storefront-fonts', $this->google_fonts(), array(), $storefront_version );
+			wp_enqueue_style( 'restroom-fonts', $this->google_fonts(), array(), $restroom_version );
 
 			/**
 			 * Scripts
@@ -348,19 +348,19 @@ if ( ! class_exists( 'Storefront' ) ) :
 
 			wp_enqueue_script( 'wc-cart-fragments' );
 
-			wp_enqueue_script( 'storefront-navigation', get_template_directory_uri() . '/assets/js/navigation' . $suffix . '.js', array(), $storefront_version, true );
+			wp_enqueue_script( 'restroom-navigation', get_template_directory_uri() . '/assets/js/navigation' . $suffix . '.js', array(), $restroom_version, true );
 
 			if ( has_nav_menu( 'handheld' ) ) {
-				$storefront_l10n = array(
-					'expand'   => __( 'Expand child menu', 'storefront' ),
-					'collapse' => __( 'Collapse child menu', 'storefront' ),
+				$restroom_l10n = array(
+					'expand'   => __( 'Expand child menu', 'restroom' ),
+					'collapse' => __( 'Collapse child menu', 'restroom' ),
 				);
 
-				wp_localize_script( 'storefront-navigation', 'storefrontScreenReaderText', $storefront_l10n );
+				wp_localize_script( 'restroom-navigation', 'restroomScreenReaderText', $restroom_l10n );
 			}
 
 			if ( is_page_template( 'template-homepage.php' ) && has_post_thumbnail() ) {
-				wp_enqueue_script( 'storefront-homepage', get_template_directory_uri() . '/assets/js/homepage' . $suffix . '.js', array(), $storefront_version, true );
+				wp_enqueue_script( 'restroom-homepage', get_template_directory_uri() . '/assets/js/homepage' . $suffix . '.js', array(), $restroom_version, true );
 			}
 
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -376,7 +376,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 		 */
 		public function google_fonts() {
 			$google_fonts = apply_filters(
-				'storefront_google_font_families',
+				'restroom_google_font_families',
 				array(
 					'source-sans-pro' => 'Source+Sans+Pro:400,300,300italic,400italic,600,700,900',
 				)
@@ -398,24 +398,24 @@ if ( ! class_exists( 'Storefront' ) ) :
 		 * @since 2.5.0
 		 */
 		public function block_assets() {
-			global $storefront_version;
+			global $restroom_version;
 
 			// Styles.
-			wp_enqueue_style( 'storefront-gutenberg-blocks', get_template_directory_uri() . '/assets/css/base/gutenberg-blocks.css', '', $storefront_version );
-			wp_style_add_data( 'storefront-gutenberg-blocks', 'rtl', 'replace' );
+			wp_enqueue_style( 'restroom-gutenberg-blocks', get_template_directory_uri() . '/assets/css/base/gutenberg-blocks.css', '', $restroom_version );
+			wp_style_add_data( 'restroom-gutenberg-blocks', 'rtl', 'replace' );
 		}
 
 		/**
 		 * Enqueue child theme stylesheet.
 		 * A separate function is required as the child theme css needs to be enqueued _after_ the parent theme
-		 * primary css and the separate WooCommerce css.
+		 * primary css and the separate PooCommerce css.
 		 *
 		 * @since  1.5.3
 		 */
 		public function child_scripts() {
 			if ( is_child_theme() ) {
 				$child_theme = wp_get_theme( get_stylesheet() );
-				wp_enqueue_style( 'storefront-child-style', get_stylesheet_uri(), array(), $child_theme->get( 'Version' ) );
+				wp_enqueue_style( 'restroom-child-style', get_stylesheet_uri(), array(), $child_theme->get( 'Version' ) );
 			}
 		}
 
@@ -443,7 +443,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 			}
 
 			/**
-			 * Adds a class when WooCommerce is not active.
+			 * Adds a class when PooCommerce is not active.
 			 *
 			 * @todo Refactor child themes to remove dependency on this class.
 			 */
@@ -452,17 +452,17 @@ if ( ! class_exists( 'Storefront' ) ) :
 			/**
 			 * What is this?!
 			 * Take the blue pill, close this file and forget you saw the following code.
-			 * Or take the red pill, filter storefront_make_me_cute and see how deep the rabbit hole goes...
+			 * Or take the red pill, filter restroom_make_me_cute and see how deep the rabbit hole goes...
 			 */
-			$cute = apply_filters( 'storefront_make_me_cute', false );
+			$cute = apply_filters( 'restroom_make_me_cute', false );
 
 			if ( true === $cute ) {
-				$classes[] = 'storefront-cute';
+				$classes[] = 'restroom-cute';
 			}
 
 			// If our main sidebar doesn't contain widgets, adjust the layout to be full-width.
 			if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-				$classes[] = 'storefront-full-width-content';
+				$classes[] = 'restroom-full-width-content';
 			}
 
 			// Add class when using homepage template + featured image.
@@ -472,12 +472,12 @@ if ( ! class_exists( 'Storefront' ) ) :
 
 			// Add class when Secondary Navigation is in use.
 			if ( has_nav_menu( 'secondary' ) ) {
-				$classes[] = 'storefront-secondary-navigation';
+				$classes[] = 'restroom-secondary-navigation';
 			}
 
 			// Add class if align-wide is supported.
 			if ( current_theme_supports( 'align-wide' ) ) {
-				$classes[] = 'storefront-align-wide';
+				$classes[] = 'restroom-align-wide';
 			}
 
 			return $classes;
@@ -487,23 +487,23 @@ if ( ! class_exists( 'Storefront' ) ) :
 		 * Custom navigation markup template hooked into `navigation_markup_template` filter hook.
 		 */
 		public function navigation_markup_template() {
-			$template  = '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="' . esc_html__( 'Post Navigation', 'storefront' ) . '">';
+			$template  = '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="' . esc_html__( 'Post Navigation', 'restroom' ) . '">';
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
 			$template .= '<div class="nav-links">%3$s</div>';
 			$template .= '</nav>';
 
-			return apply_filters( 'storefront_navigation_markup_template', $template );
+			return apply_filters( 'restroom_navigation_markup_template', $template );
 		}
 
 		/**
 		 * Add styles for embeds
 		 */
 		public function print_embed_styles() {
-			global $storefront_version;
+			global $restroom_version;
 
-			wp_enqueue_style( 'source-sans-pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,700,900', array(), $storefront_version );
-			$accent_color     = get_theme_mod( 'storefront_accent_color' );
-			$background_color = storefront_get_content_background_color();
+			wp_enqueue_style( 'source-sans-pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,700,900', array(), $restroom_version );
+			$accent_color     = get_theme_mod( 'restroom_accent_color' );
+			$background_color = restroom_get_content_background_color();
 			?>
 			<style type="text/css">
 				.wp-embed {
@@ -511,7 +511,7 @@ if ( ! class_exists( 'Storefront' ) ) :
 					border: 0 !important;
 					border-radius: 3px !important;
 					font-family: "Source Sans Pro", "Open Sans", sans-serif !important;
-					background-color: <?php echo esc_html( storefront_adjust_color_brightness( $background_color, -7 ) ); ?> !important;
+					background-color: <?php echo esc_html( restroom_adjust_color_brightness( $background_color, -7 ) ); ?> !important;
 				}
 
 				.wp-embed .wp-embed-featured-image {
@@ -545,4 +545,4 @@ if ( ! class_exists( 'Storefront' ) ) :
 	}
 endif;
 
-return new Storefront();
+return new Restroom();
