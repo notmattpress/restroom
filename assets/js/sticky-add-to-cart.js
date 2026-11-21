@@ -1,8 +1,8 @@
-/*global storefront_sticky_add_to_cart_params */
+/*global restroom_sticky_add_to_cart_params */
 ( function () {
 	document.addEventListener( 'DOMContentLoaded', function () {
 		const stickyAddToCart = document.getElementsByClassName(
-			'storefront-sticky-add-to-cart'
+			'restroom-sticky-add-to-cart'
 		);
 
 		if ( ! stickyAddToCart.length ) {
@@ -10,12 +10,12 @@
 		}
 
 		// eslint-disable-next-line camelcase
-		if ( typeof storefront_sticky_add_to_cart_params === 'undefined' ) {
+		if ( typeof restroom_sticky_add_to_cart_params === 'undefined' ) {
 			return;
 		}
 
 		const trigger = document.getElementsByClassName(
-			storefront_sticky_add_to_cart_params.trigger_class
+			restroom_sticky_add_to_cart_params.trigger_class
 		);
 
 		if ( trigger.length > 0 ) {
@@ -26,21 +26,21 @@
 					0
 				) {
 					stickyAddToCart[ 0 ].classList.add(
-						'storefront-sticky-add-to-cart--slideInDown'
+						'restroom-sticky-add-to-cart--slideInDown'
 					);
 					stickyAddToCart[ 0 ].classList.remove(
-						'storefront-sticky-add-to-cart--slideOutUp'
+						'restroom-sticky-add-to-cart--slideOutUp'
 					);
 				} else if (
 					stickyAddToCart[ 0 ].classList.contains(
-						'storefront-sticky-add-to-cart--slideInDown'
+						'restroom-sticky-add-to-cart--slideInDown'
 					)
 				) {
 					stickyAddToCart[ 0 ].classList.add(
-						'storefront-sticky-add-to-cart--slideOutUp'
+						'restroom-sticky-add-to-cart--slideOutUp'
 					);
 					stickyAddToCart[ 0 ].classList.remove(
-						'storefront-sticky-add-to-cart--slideInDown'
+						'restroom-sticky-add-to-cart--slideInDown'
 					);
 				}
 			};
@@ -71,7 +71,7 @@
 						! product.classList.contains( 'product-type-external' )
 					) {
 						const selectOptions = document.getElementsByClassName(
-							'storefront-sticky-add-to-cart__content-button'
+							'restroom-sticky-add-to-cart__content-button'
 						);
 
 						selectOptions[ 0 ].addEventListener(

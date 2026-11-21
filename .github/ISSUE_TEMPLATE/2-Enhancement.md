@@ -1,6 +1,6 @@
 ---
 name: "✨ Enhancement"
-about: If you have an idea to improve Storefront, please let us know – or submit a Pull Request!
+about: If you have an idea to improve Restroom, please let us know – or submit a Pull Request!
 title: ''
 labels: ''
 assignees: ''

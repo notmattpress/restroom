@@ -1,5 +1,5 @@
 /**
- * WooCommerce Memberships
+ * PooCommerce Memberships
  */
 
 /**
@@ -12,38 +12,38 @@
 @import "../../sass/vendors/modular-scale";
 @import "../../sass/vendors/font-awesome/variables";
 
-.woocommerce,
-.woocommerce-page {
+.poocommerce,
+.poocommerce-page {
 
-	.woocommerce-MyAccount-navigation {
+	.poocommerce-MyAccount-navigation {
 
 		ul {
 
-			li.woocommerce-MyAccount-navigation-link--members-area a::before {
+			li.poocommerce-MyAccount-navigation-link--members-area a::before {
 				content: fa-content($fa-var-lock);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--back-to-memberships a::before {
+			li.poocommerce-MyAccount-navigation-link--back-to-memberships a::before {
 				content: fa-content($fa-var-arrow-circle-left);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--my-membership-content a::before {
+			li.poocommerce-MyAccount-navigation-link--my-membership-content a::before {
 				content: fa-content($fa-var-lock);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--my-membership-products a::before {
+			li.poocommerce-MyAccount-navigation-link--my-membership-products a::before {
 				content: fa-content($fa-var-shopping-cart);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--my-membership-discounts a::before {
+			li.poocommerce-MyAccount-navigation-link--my-membership-discounts a::before {
 				content: fa-content($fa-var-tags);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--my-membership-notes a::before {
+			li.poocommerce-MyAccount-navigation-link--my-membership-notes a::before {
 				content: fa-content($fa-var-comment);
 			}
 
-			li.woocommerce-MyAccount-navigation-link--my-membership-details a::before {
+			li.poocommerce-MyAccount-navigation-link--my-membership-details a::before {
 				content: fa-content($fa-var-cog);
 			}
 		}
@@ -52,7 +52,7 @@
 
 @include susy-media (max-width $desktop) {
 
-	.woocommerce-account {
+	.poocommerce-account {
 
 		table {
 
